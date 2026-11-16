@@ -1,0 +1,2284 @@
+<!DOCTYPE html>
+<html lang="es-MX" class="scroll-smooth dark no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Peso a Peso con Rafa | Portal Oficial y Calculadoras Financieras</title>
+  
+  <!-- SEO, Canonical y Favicon -->
+  <link rel="canonical" href="https://surbalo1.github.io/youtube-automation/">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪙</text></svg>">
+  <meta name="description" content="Portal oficial de Peso a Peso con Rafa. Simuladores de inversión en CETES y Nu, calculadora de pagos a capital Infonavit, semáforo de 5 UMAs del SAT y descarga de plantilla Excel gratuita.">
+  <meta name="keywords" content="finanzas personales mexico, cetes, nu, gbm, infonavit, sat buzon tributario, sofipos 5 umas, mercado pago rendimientos">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:title" content="Peso a Peso con Rafa | Finanzas Inteligentes México">
+  <meta property="og:description" content="Calculadoras interactivas de ahorro, rendimientos diarios y créditos hipotecarios en México.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://surbalo1.github.io/youtube-automation/">
+  <meta property="og:image" content="https://surbalo1.github.io/youtube-automation/og-image.png">
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@pesoaapesorafa">
+  <meta name="twitter:creator" content="@pesoaapesorafa">
+  <meta name="twitter:title" content="Peso a Peso con Rafa | Finanzas Inteligentes México">
+  <meta name="twitter:description" content="Calculadoras interactivas de ahorro, rendimientos diarios y créditos hipotecarios en México.">
+  <meta name="twitter:image" content="https://surbalo1.github.io/youtube-automation/og-image.png">
+  
+  <!-- Tailwind CSS & Lucide Icons & Chart.js (Versiones fijadas con defer) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@0.475.0/dist/umd/lucide.min.js" defer integrity="sha384-prOTt12iGU6/k2uoXJ3az4BWS2qoxykgxJb6pjfmRK7MYOMnMe7bWWBMPZqxwVks" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js" defer integrity="sha384-vsrfeLOOY6KuIYKDlmVH5UiBmgIdB1oEf7p01YgWHuqmOHfZr374+odEv96n9tNC" crossorigin="anonymous"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"Fira Code"', 'monospace']
+          },
+          colors: {"slate":{"50": "#0a2540", "100": "#0a2540", "200": "#1a3555", "300": "#425466", "400": "#5b6b7d", "500": "#8898aa", "600": "#adbdcc", "700": "#d9e2ec", "800": "#e6ebf1", "900": "#ffffff", "950": "#f6f9fc"},"white":"#0a2540","emerald":{"50": "#e5fbf4", "100": "#00865f", "200": "#00865f", "300": "#00865f", "400": "#00865f", "500": "#00d4a0", "600": "#00865f", "700": "#00865f", "800": "#c9f5e7", "900": "#e5fbf4", "950": "#e5fbf4"},"teal":{"50": "#e5fbf4", "100": "#00865f", "200": "#00865f", "300": "#00865f", "400": "#00865f", "500": "#00d4a0", "600": "#00865f", "700": "#00865f", "800": "#c9f5e7", "900": "#e5fbf4", "950": "#e5fbf4"},"cyan":{"50": "#e8f0ff", "100": "#0a5cd8", "200": "#0a5cd8", "300": "#0a5cd8", "400": "#0a5cd8", "500": "#0a6cff", "600": "#0a5cd8", "700": "#0a5cd8", "800": "#d2e2ff", "900": "#e8f0ff", "950": "#e8f0ff"},"sky":{"50": "#e8f0ff", "100": "#0a5cd8", "200": "#0a5cd8", "300": "#0a5cd8", "400": "#0a5cd8", "500": "#0a6cff", "600": "#0a5cd8", "700": "#0a5cd8", "800": "#d2e2ff", "900": "#e8f0ff", "950": "#e8f0ff"},"blue":{"50": "#e8f0ff", "100": "#0a5cd8", "200": "#0a5cd8", "300": "#0a5cd8", "400": "#0a5cd8", "500": "#0a6cff", "600": "#0a5cd8", "700": "#0a5cd8", "800": "#d2e2ff", "900": "#e8f0ff", "950": "#e8f0ff"},"indigo":{"50": "#e8f0ff", "100": "#0a5cd8", "200": "#0a5cd8", "300": "#0a5cd8", "400": "#0a5cd8", "500": "#0a6cff", "600": "#0a5cd8", "700": "#0a5cd8", "800": "#d2e2ff", "900": "#e8f0ff", "950": "#e8f0ff"},"purple":{"50": "#e8f0ff", "100": "#0a5cd8", "200": "#0a5cd8", "300": "#0a5cd8", "400": "#0a5cd8", "500": "#0a6cff", "600": "#0a5cd8", "700": "#0a5cd8", "800": "#d2e2ff", "900": "#e8f0ff", "950": "#e8f0ff"},"amber":{"50": "#fff5e0", "100": "#b35900", "200": "#b35900", "300": "#b35900", "400": "#b35900", "500": "#ffb000", "600": "#b35900", "700": "#b35900", "800": "#ffe8b8", "900": "#fff5e0", "950": "#fff5e0"},"red":{"50": "#ffeceb", "100": "#d4313b", "200": "#d4313b", "300": "#d4313b", "400": "#d4313b", "500": "#ff5e5b", "600": "#d4313b", "700": "#d4313b", "800": "#ffd5d4", "900": "#ffeceb", "950": "#ffeceb"},"rose":{"50": "#ffeceb", "100": "#d4313b", "200": "#d4313b", "300": "#d4313b", "400": "#d4313b", "500": "#ff5e5b", "600": "#d4313b", "700": "#d4313b", "800": "#ffd5d4", "900": "#ffeceb", "950": "#ffeceb"},"pink":{"50": "#ffeceb", "100": "#d4313b", "200": "#d4313b", "300": "#d4313b", "400": "#d4313b", "500": "#ff5e5b", "600": "#d4313b", "700": "#d4313b", "800": "#ffd5d4", "900": "#ffeceb", "950": "#ffeceb"},
+            brand: {
+              dark: '#060911',
+              card: '#0c1222',
+              cardBorder: 'rgba(255, 255, 255, 0.08)',
+              emerald: '#10b981',
+              cyan: '#06b6d4',
+              purple: '#8b5cf6',
+              amber: '#f59e0b',
+              rose: '#f43f5e'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #060911;
+      color: #f1f5f9;
+    }
+    .glass-panel {
+      background: rgba(12, 18, 34, 0.78);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .glass-card {
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .glass-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(16, 185, 129, 0.4);
+      box-shadow: 0 12px 30px -10px rgba(16, 185, 129, 0.25);
+    }
+    .tab-btn.active {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: #ffffff;
+      font-weight: 700;
+      box-shadow: 0 4px 18px rgba(16, 185, 129, 0.35);
+    }
+    input[type=range]::-webkit-slider-thumb {
+      appearance: none;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #10b981;
+      cursor: pointer;
+      box-shadow: 0 0 14px rgba(16, 185, 129, 0.9);
+      border: 2px solid #ffffff;
+    }
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.3; transform: scale(1); }
+      50% { opacity: 0.55; transform: scale(1.08); }
+    }
+    .ambient-glow-1 {
+      animation: pulseGlow 8s ease-in-out infinite;
+    }
+    .ambient-glow-2 {
+      animation: pulseGlow 10s ease-in-out infinite alternate;
+    }
+
+    /* ===== Capa 7: rediseño dinámico ===== */
+    html { scroll-padding-top: 90px; }
+    .aurora { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+    .aurora::before { content:""; position:absolute; inset:0;
+      background-image: linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+      background-size: 56px 56px; mask-image: radial-gradient(ellipse 70% 55% at 50% 0%, #000 30%, transparent 75%); -webkit-mask-image: radial-gradient(ellipse 70% 55% at 50% 0%, #000 30%, transparent 75%); }
+    .orb { position:absolute; border-radius:50%; filter: blur(80px); will-change: transform; }
+    .orb-a { width:560px; height:360px; top:-120px; left:50%; margin-left:-280px; background: rgba(16,185,129,.20); }
+    .orb-b { width:420px; height:420px; top:40%; right:-120px; background: rgba(6,182,212,.13); }
+    @media (max-width:640px){ .orb-b,.orb-c{display:none} }
+    .orb-c { width:380px; height:380px; bottom:-80px; left:-100px; background: rgba(139,92,246,.12); }
+    body.motion-paused *, body.motion-paused *::before, body.motion-paused *::after { animation-play-state: paused !important; }
+    #scroll-progress { position:fixed; top:0; left:0; height:3px; width:100%; transform-origin:0 50%; transform: scaleX(0); background: linear-gradient(90deg,#10b981,#06b6d4,#8b5cf6); z-index:100; }
+    .text-gradient { background: linear-gradient(100deg,#34d399 0%,#5eead4 40%,#22d3ee 70%,#a78bfa 100%); -webkit-background-clip:text; background-clip:text; color:transparent; background-size:200% 100%; animation: sheen 8s ease-in-out infinite alternate; }
+    @keyframes sheen { to { background-position: 100% 0; } }
+    @keyframes wordIn { to { opacity:1; transform:none; filter:none; } }
+    .fade-up { opacity:0; transform: translateY(14px); animation: fadeUp .8s cubic-bezier(.2,.7,.2,1) forwards; animation-delay: var(--d, 0ms); }
+    @keyframes fadeUp { to { opacity:1; transform:none; } }
+    .reveal { opacity:0; transform: translateY(26px) scale(.985); transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); transition-delay: var(--rd, 0ms); }
+    .reveal.in { opacity:1; transform:none; }
+    .no-js .reveal, .no-js .fade-up { opacity:1; transform:none; filter:none; animation:none; }
+    .glass-card, .spot { position:relative; }
+    .glass-card::after, .spot::after { content:""; position:absolute; inset:0; border-radius:inherit; pointer-events:none; opacity:0; transition: opacity .3s;
+      background: radial-gradient(360px circle at var(--mx,50%) var(--my,50%), rgba(52,211,153,.16), transparent 45%); }
+    .glass-card:hover::after, .spot:hover::after { opacity:1; }
+    #main-nav { position: sticky; top: 52px; z-index: 40; }
+    .tab-btn { position:relative; }
+    .tab-btn:focus-visible, a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid #34d399; outline-offset: 2px; }
+    main section:not(.hidden) { animation: tabIn .55s cubic-bezier(.2,.7,.2,1); }
+    @keyframes tabIn { from { opacity:0; transform: translateY(18px); } to { opacity:1; transform:none; } }
+    @keyframes draw { to { stroke-dashoffset: 0; } }
+    @keyframes grow { to { transform: scaleY(1); } }
+    .closing { background: radial-gradient(ellipse 80% 100% at 50% 0%, rgba(16,185,129,.16), transparent 70%), rgba(12,18,34,.7); }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+      .reveal, .fade-up { opacity:1 !important; transform:none !important; filter:none !important; }
+    }
+  </style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"><style>
+body{background:#fff !important;color:#0a2540 !important;font-family:Inter,sans-serif !important}
+.aurora{display:none !important} #scroll-progress{background:linear-gradient(90deg,#0a6cff,#00d4ff,#ffb000,#ff5e5b) !important}
+body::before{content:"";position:absolute;left:0;right:0;top:-260px;height:700px;z-index:0;pointer-events:none;transform:skewY(-9deg);transform-origin:0 0;
+ background:radial-gradient(ellipse 60% 70% at 10% 60%,#00d4ff,transparent 60%),radial-gradient(ellipse 55% 80% at 45% 40%,#0a6cff,transparent 65%),
+ radial-gradient(ellipse 50% 70% at 75% 70%,#ffb000,transparent 60%),radial-gradient(ellipse 45% 70% at 100% 40%,#ff5e5b,transparent 60%),#7fd6ff}
+header>div:first-child>div:first-child{background:rgba(255,255,255,.88);border-radius:24px;padding:22px 16px;backdrop-filter:blur(8px);box-shadow:0 30px 60px -30px rgba(50,50,93,.35)}
+h1{font-weight:800 !important;letter-spacing:-.035em !important}
+h2,h3{font-weight:700 !important;letter-spacing:-.015em !important}
+.text-gradient{background:linear-gradient(90deg,#0a5cd8,#0077a8 45%,#b35900 80%,#c42a33) !important;-webkit-background-clip:text !important;background-clip:text !important;-webkit-text-fill-color:transparent !important}
+.glass-panel,.glass-card,.spot,[class*="rounded-2xl"][class*="border"],[class*="rounded-3xl"][class*="border"]{
+ background:#fff !important;border:1px solid #e6ebf1 !important;border-radius:14px !important;box-shadow:0 30px 60px -30px rgba(50,50,93,.25),0 18px 36px -18px rgba(0,0,0,.2) !important;backdrop-filter:none !important}
+.spot li[class][class]{background:#f6f9fc !important;box-shadow:none !important;border:1px solid #e6ebf1 !important}
+.glass-card::after,.spot::after{display:none !important}
+a[class*="from-emerald-400"]{background:#0a2540 !important;color:#fff !important;border-radius:999px !important;box-shadow:none !important}
+header a.border{background:#fff !important;border:0 !important;border-radius:999px !important;color:#0a6cff !important}
+#main-nav{background:#fff !important;border:1px solid #e6ebf1 !important}
+.tab-btn.active{background:#0a6cff !important;color:#fff !important;box-shadow:0 6px 16px -6px rgba(10,108,255,.6) !important}
+aside{background:#0a2540 !important;border:0 !important}
+aside .text-white{color:#fff !important} aside .text-slate-300{color:#adbdcc !important}
+.closing{background:#f6f9fc !important}
+
+html{color-scheme:light !important}
+input[type=range]{accent-color:#0a5cd8}
+input[type=range]::-webkit-slider-thumb{background:#fff !important;border:0 !important;box-shadow:0 1px 4px rgba(10,37,64,.3),0 0 0 .5px rgba(10,37,64,.1) !important}
+.tab-btn.active{background:#0a5cd8 !important;font-weight:600 !important}
+[class~="bg-emerald-400"][class~="text-white"],[class~="bg-emerald-400"][class~="text-slate-950"],[class~="bg-emerald-500"][class~="text-white"],[class~="bg-emerald-500"][class~="text-slate-950"],[class~="bg-teal-400"][class~="text-white"],[class~="bg-teal-400"][class~="text-slate-950"],[class~="bg-teal-500"][class~="text-white"],[class~="bg-teal-500"][class~="text-slate-950"]{background:#00865f !important;color:#fff !important}
+[class~="bg-blue-400"][class~="text-white"],[class~="bg-blue-400"][class~="text-slate-950"],[class~="bg-blue-500"][class~="text-white"],[class~="bg-blue-500"][class~="text-slate-950"],[class~="bg-purple-400"][class~="text-white"],[class~="bg-purple-400"][class~="text-slate-950"],[class~="bg-purple-500"][class~="text-white"],[class~="bg-purple-500"][class~="text-slate-950"],[class~="bg-sky-400"][class~="text-white"],[class~="bg-sky-400"][class~="text-slate-950"],[class~="bg-sky-500"][class~="text-white"],[class~="bg-sky-500"][class~="text-slate-950"],[class~="bg-cyan-400"][class~="text-white"],[class~="bg-cyan-400"][class~="text-slate-950"],[class~="bg-cyan-500"][class~="text-white"],[class~="bg-cyan-500"][class~="text-slate-950"],[class~="bg-indigo-400"][class~="text-white"],[class~="bg-indigo-400"][class~="text-slate-950"],[class~="bg-indigo-500"][class~="text-white"],[class~="bg-indigo-500"][class~="text-slate-950"]{background:#0a5cd8 !important;color:#fff !important}
+[class~="bg-amber-400"][class~="text-white"],[class~="bg-amber-400"][class~="text-slate-950"],[class~="bg-amber-500"][class~="text-white"],[class~="bg-amber-500"][class~="text-slate-950"]{background:#a65200 !important;color:#fff !important}
+[class~="bg-red-400"][class~="text-white"],[class~="bg-red-400"][class~="text-slate-950"],[class~="bg-red-500"][class~="text-white"],[class~="bg-red-500"][class~="text-slate-950"],[class~="bg-rose-400"][class~="text-white"],[class~="bg-rose-400"][class~="text-slate-950"],[class~="bg-rose-500"][class~="text-white"],[class~="bg-rose-500"][class~="text-slate-950"],[class~="bg-pink-400"][class~="text-white"],[class~="bg-pink-400"][class~="text-slate-950"],[class~="bg-pink-500"][class~="text-white"],[class~="bg-pink-500"][class~="text-slate-950"]{background:#c42a33 !important;color:#fff !important}
+a[class~="bg-emerald-500"][class~="text-slate-950"],a[class~="bg-emerald-400"][class~="text-slate-950"]{background:#0a5cd8 !important}
+.text-red-500,.text-pink-500,.text-rose-500{color:#c42a33 !important}
+.text-amber-500{color:#a65200 !important} .text-emerald-500,.text-teal-500{color:#00865f !important}
+a[class*="from-emerald-500"][class*="via-teal-400"],button[class*="from-emerald-400"][class*="to-cyan-400"]{background:#0a2540 !important;color:#fff !important;border-radius:999px !important;box-shadow:0 10px 24px -10px rgba(10,37,64,.5) !important;font-weight:600 !important}
+aside [class~="bg-emerald-400"],aside [class~="bg-emerald-500"]{background:#00d4a0 !important;color:#0a2540 !important}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Peso a Peso con Rafa",
+  "url": "https://surbalo1.github.io/youtube-automation/",
+  "description": "Finanzas personales para México: videos cortos, calculadoras y plantillas.",
+  "sameAs": [
+    "https://youtube.com/@PesoAPesoConRafa",
+    "https://tiktok.com/@pesoaapesoconrafa",
+    "https://instagram.com/pesoaapesoconrafa",
+    "https://www.threads.net/@pesoaapesoconrafa",
+    "https://x.com/pesoaapesorafa",
+    "https://facebook.com/profile.php?id=61594333436523"
+  ]
+}
+</script>
+</head>
+<body class="min-h-screen flex flex-col items-center relative overflow-x-hidden selection:bg-emerald-500 selection:text-black">
+
+  <div id="scroll-progress" aria-hidden="true"></div>
+  <div class="aurora" aria-hidden="true"><div class="orb orb-a" data-depth="18"></div><div class="orb orb-b" data-depth="-26"></div><div class="orb orb-c" data-depth="12"></div></div>
+
+  <!-- Barra Superior de Comunidad WhatsApp (Sticky Banner) -->
+  <aside class="w-full bg-gradient-to-r from-emerald-950 via-slate-900 to-emerald-950 border-b border-emerald-500/30 py-2.5 px-4 text-center z-50 sticky top-0 backdrop-blur-md">
+    <div class="max-w-4xl mx-auto flex items-center justify-between text-xs sm:text-sm gap-2">
+      <div class="flex items-center gap-2 overflow-hidden text-ellipsis whitespace-nowrap">
+        <span class="flex h-2.5 w-2.5 relative shrink-0">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+        </span>
+        <span class="font-bold text-white">Canal WhatsApp Oficial:</span>
+        <span class="text-slate-300 hidden md:inline">Alertas de tasas Banxico, subastas CETES y avisos del SAT.</span>
+      </div>
+      <a href="https://whatsapp.com/channel/0029Vb9C7g04tRrstKFJXZ0H" target="_blank" class="shrink-0 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold px-3 py-1 rounded-full text-xs transition-transform active:scale-95 shadow-md shadow-emerald-500/30 flex items-center gap-1">
+        <span>Unirme Gratis</span>
+        <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+      </a>
+    </div>
+  </aside>
+
+  <!-- Header / Barra Superior -->
+  <header class="w-full max-w-5xl pt-10 sm:pt-16 pb-4 px-4 z-10">
+    <div class="grid lg:grid-cols-[1.1fr_.9fr] gap-8 lg:gap-10 items-center">
+      <div class="text-center lg:text-left">
+        <p class="inline-flex items-center gap-2 text-[11px] sm:text-xs font-bold uppercase tracking-[.18em] text-emerald-300 bg-emerald-500/10 border border-emerald-500/25 rounded-full px-3.5 py-1.5 mb-5">
+          <span aria-hidden="true">🇲🇽</span> Finanzas personales en México
+        </p>
+        <h1 class="text-[2.2rem] leading-[1.05] sm:text-5xl xl:text-6xl font-extrabold tracking-tight text-white mb-5">
+          Tu dinero, peso a peso. <span class="block text-gradient">Con números, no con promesas.</span>
+        </h1>
+        <p class="text-[15px] sm:text-lg text-slate-300 max-w-xl mx-auto lg:mx-0 mb-7 leading-relaxed">
+          Abre cuentas con beneficio de bienvenida, calcula cuánto te pagan de verdad y ordena tu dinero con nuestra plantilla gratis.
+        </p>
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3">
+          <a href="#main-nav" onclick="switchTab('links')" class="bg-gradient-to-r from-emerald-400 to-cyan-400 text-slate-950 font-extrabold px-6 py-3.5 rounded-2xl text-sm shadow-lg shadow-emerald-500/25 hover:scale-[1.03] active:scale-95 transition-transform text-center">🎁 Ver cuentas con beneficio</a>
+          <a href="#main-nav" onclick="switchTab('rendimientos')" class="border border-slate-700 hover:border-emerald-400/60 text-slate-100 font-semibold px-6 py-3.5 rounded-2xl text-sm transition-colors text-center">🧮 Calcular mis rendimientos</a>
+        </div>
+        <a href="#main-nav" onclick="switchTab('excel')" class="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-300 hover:text-emerald-200">📥 Descarga la plantilla Excel gratis <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+      </div>
+
+      <!-- Top 3: lo que más se usa para empezar -->
+      <div class="spot rounded-3xl border border-white/10 bg-slate-900/70 backdrop-blur-xl p-4 sm:p-5 shadow-2xl shadow-emerald-950/40" aria-labelledby="top3-t">
+        <div class="flex items-center justify-between mb-3">
+          <h2 id="top3-t" class="text-sm font-extrabold text-white">🔥 Para empezar hoy</h2>
+          <span class="text-[10px] uppercase tracking-widest text-slate-400 font-semibold">Enlaces de referido</span>
+        </div>
+        <ul class="space-y-2.5">
+          <li class="flex items-center gap-3 rounded-2xl bg-slate-950/60 border border-slate-800 p-3">
+            <span class="w-10 h-10 grid place-items-center rounded-xl bg-purple-500/20 text-xl shrink-0" aria-hidden="true">💜</span>
+            <div class="flex-1 min-w-0">
+              <p class="text-sm font-bold text-white leading-tight">Nu · Cajitas</p>
+              <p class="text-[11px] text-slate-400 truncate">Cajitas con rendimiento diario</p>
+            </div>
+            <a href="https://nubank.com.mx/mgm/?id=WxPOcsH3gm1HTXcqv6Pf5Q&msg=06478&utm_channel=referral&utm_medium=other&utm_source=mgm" target="_blank" rel="noopener sponsored" class="shrink-0 bg-purple-500 hover:bg-purple-400 text-white text-xs font-extrabold px-3 py-2 rounded-xl">Abrir</a>
+          </li>
+          <li class="flex items-center gap-3 rounded-2xl bg-slate-950/60 border border-slate-800 p-3">
+            <span class="w-10 h-10 grid place-items-center rounded-xl bg-blue-500/20 text-xl shrink-0" aria-hidden="true">🌍</span>
+            <div class="flex-1 min-w-0">
+              <p class="text-sm font-bold text-white leading-tight">Revolut</p>
+              <button type="button" data-copy="surbalo" class="copy-btn text-left text-[11px] font-mono text-blue-300 hover:text-blue-200">Código: surbalo · copiar</button>
+            </div>
+            <a href="https://revolut.com/referral/?referral-code=surbalo&geo-redirect" target="_blank" rel="noopener sponsored" class="shrink-0 bg-blue-500 hover:bg-blue-400 text-white text-xs font-extrabold px-3 py-2 rounded-xl">Abrir</a>
+          </li>
+          <li class="flex items-center gap-3 rounded-2xl bg-slate-950/60 border border-slate-800 p-3">
+            <span class="w-10 h-10 grid place-items-center rounded-xl bg-emerald-500/20 text-xl shrink-0" aria-hidden="true">💵</span>
+            <div class="flex-1 min-w-0">
+              <p class="text-sm font-bold text-white leading-tight">DolarApp (ARQ)</p>
+              <button type="button" data-copy="surbalo1_FzA" class="copy-btn text-left text-[11px] font-mono text-emerald-300 hover:text-emerald-200">Código: surbalo1_FzA · copiar</button>
+            </div>
+            <a href="https://www.arqfinance.com/referrals/general?referralCode=surbalo1_FzA&pid=referral&c=general&is_retargeting=true" target="_blank" rel="noopener sponsored" class="shrink-0 bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-xs font-extrabold px-3 py-2 rounded-xl">Abrir</a>
+          </li>
+        </ul>
+        <button type="button" onclick="switchTab('links');document.getElementById('main-nav').scrollIntoView({behavior:'smooth'})" class="mt-3 w-full text-center text-xs font-bold text-slate-300 hover:text-white border border-slate-700 hover:border-emerald-400/50 rounded-xl py-2.5 transition-colors">Ver las 11 cuentas →</button>
+        <p class="text-[10px] text-slate-400 mt-2 leading-snug">Si abres una cuenta con estos enlaces, el canal puede recibir una bonificación sin costo para ti. Revisa siempre las condiciones de cada app.</p>
+      </div>
+    </div>
+
+    <!-- Síguenos -->
+    <div class="mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-2 text-xs">
+      <span class="text-slate-400 font-semibold mr-1">Síguenos:</span>
+      <a href="https://youtube.com/@PesoAPesoConRafa" target="_blank" rel="noopener" class="px-3 py-1.5 rounded-full bg-red-500/15 border border-red-500/30 text-red-300 hover:bg-red-500/25 font-bold">▶ YouTube</a>
+      <a href="https://tiktok.com/@pesoaapesoconrafa" target="_blank" rel="noopener" class="px-3 py-1.5 rounded-full bg-cyan-500/15 border border-cyan-500/30 text-cyan-300 hover:bg-cyan-500/25 font-bold">TikTok</a>
+      <a href="https://instagram.com/pesoaapesoconrafa" target="_blank" rel="noopener" class="px-3 py-1.5 rounded-full bg-pink-500/15 border border-pink-500/30 text-pink-300 hover:bg-pink-500/25 font-bold">Instagram</a>
+      <a href="https://whatsapp.com/channel/0029Vb9C7g04tRrstKFJXZ0H" target="_blank" rel="noopener" class="px-3 py-1.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 hover:bg-emerald-500/25 font-bold">WhatsApp</a>
+    </div>
+
+    <!-- Indicadores de referencia -->
+    <div class="mt-8 w-full bg-slate-900/70 border border-slate-800 rounded-2xl py-3 px-4 grid grid-cols-2 sm:grid-cols-4 gap-y-3 text-xs shadow-inner">
+      <div class="flex flex-col items-center border-r border-slate-800/80">
+        <span class="text-[10px] text-slate-400 uppercase tracking-wider font-semibold">Tasa Banxico</span>
+        <span class="font-mono font-extrabold text-cyan-400 text-sm">6.50%</span>
+      </div>
+      <div class="flex flex-col items-center sm:border-r border-slate-800/80">
+        <span class="text-[10px] text-slate-400 uppercase tracking-wider font-semibold">CETES 28D</span>
+        <span class="font-mono font-extrabold text-emerald-400 text-sm">6.25%</span>
+      </div>
+      <div class="flex flex-col items-center border-r border-slate-800/80">
+        <span class="text-[10px] text-slate-400 uppercase tracking-wider font-semibold">Dólar USD/MXN</span>
+        <span class="font-mono font-extrabold text-amber-400 text-sm">$16.97</span>
+      </div>
+      <div class="flex flex-col items-center">
+        <span class="text-[10px] text-slate-400 uppercase tracking-wider font-semibold">Inflación México</span>
+        <span class="font-mono font-extrabold text-rose-400 text-sm">3.26%</span>
+      </div>
+      <p class="col-span-2 sm:col-span-4 text-center text-[10px] text-slate-400 pt-1">Cifras de referencia, pueden haber cambiado. Verifica siempre en Banxico, CETESDirecto e INEGI antes de decidir.</p>
+    </div>
+
+    <!-- Navegador de Secciones (Tabs) con Scroll Suave Móvil y Accesibilidad ARIA -->
+    <nav id="main-nav" aria-label="Secciones del portal" role="tablist" class="mt-8 w-full max-w-3xl mx-auto bg-slate-900/90 backdrop-blur-xl p-1.5 rounded-2xl flex items-center justify-between gap-1 border border-slate-800 text-xs sm:text-sm font-semibold mb-8 shadow-xl overflow-x-auto">
+      <button role="tab" aria-selected="true" aria-controls="content-links" onclick="switchTab('links')" id="tab-links" class="tab-btn active flex-1 py-2.5 px-2.5 rounded-xl transition-all flex items-center justify-center gap-1.5 whitespace-nowrap">
+        <i data-lucide="link" class="w-4 h-4"></i>
+        <span>Enlaces VIP</span>
+      </button>
+      <button role="tab" aria-selected="false" aria-controls="content-rendimientos" onclick="switchTab('rendimientos')" id="tab-rendimientos" class="tab-btn flex-1 py-2.5 px-2.5 rounded-xl transition-all flex items-center justify-center gap-1.5 text-slate-400 hover:text-white whitespace-nowrap">
+        <i data-lucide="trending-up" class="w-4 h-4"></i>
+        <span>Rendimientos</span>
+      </button>
+      <button role="tab" aria-selected="false" aria-controls="content-afore" onclick="switchTab('afore')" id="tab-afore" class="tab-btn flex-1 py-2.5 px-2.5 rounded-xl transition-all flex items-center justify-center gap-1.5 text-slate-400 hover:text-white whitespace-nowrap">
+        <i data-lucide="piggy-bank" class="w-4 h-4"></i>
+        <span>AFORE & Retiro</span>
+      </button>
+      <button role="tab" aria-selected="false" aria-controls="content-deducciones" onclick="switchTab('deducciones')" id="tab-deducciones" class="tab-btn flex-1 py-2.5 px-2.5 rounded-xl transition-all flex items-center justify-center gap-1.5 text-slate-400 hover:text-white whitespace-nowrap">
+        <i data-lucide="receipt" class="w-4 h-4"></i>
+        <span>Devolución SAT</span>
+      </button>
+      <button role="tab" aria-selected="false" aria-controls="content-infonavit" onclick="switchTab('infonavit')" id="tab-infonavit" class="tab-btn flex-1 py-2.5 px-2.5 rounded-xl transition-all flex items-center justify-center gap-1.5 text-slate-400 hover:text-white whitespace-nowrap">
+        <i data-lucide="home" class="w-4 h-4"></i>
+        <span>Infonavit</span>
+      </button>
+      <button role="tab" aria-selected="false" aria-controls="content-sofipos" onclick="switchTab('sofipos')" id="tab-sofipos" class="tab-btn flex-1 py-2.5 px-2.5 rounded-xl transition-all flex items-center justify-center gap-1.5 text-slate-400 hover:text-white whitespace-nowrap">
+        <i data-lucide="shield-check" class="w-4 h-4"></i>
+        <span>SAT 5 UMAs</span>
+      </button>
+      <button role="tab" aria-selected="false" aria-controls="content-excel" onclick="switchTab('excel')" id="tab-excel" class="tab-btn flex-1 py-2.5 px-2.5 rounded-xl transition-all flex items-center justify-center gap-1.5 text-slate-400 hover:text-white whitespace-nowrap">
+        <i data-lucide="file-spreadsheet" class="w-4 h-4"></i>
+        <span>Plantilla</span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main id="contenido" class="w-full max-w-3xl px-4 pb-16 z-10">
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!-- TAB 1: ENLACES VIP Y PROMOCIONES OFICIALES             -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <section id="content-links" role="tabpanel" aria-labelledby="tab-links" tabindex="0" class="space-y-3.5 focus:outline-none">
+
+      <!-- Disclaimer Legal y Transparencia de Afiliados -->
+      <div class="p-3.5 rounded-2xl bg-slate-900/90 border border-slate-800 text-xs text-slate-300 shadow-sm flex items-start gap-2.5">
+        <span class="text-base shrink-0" aria-hidden="true">⚖️</span>
+        <div class="space-y-1">
+          <p class="font-semibold text-slate-200">Contenido educativo, no es asesoría financiera ni recomendación de inversión. Los cálculos son estimaciones.</p>
+          <p class="text-[11px] text-slate-400">Aviso: Algunos enlaces son de afiliados; el canal puede recibir una bonificación sin costo para ti.</p>
+        </div>
+      </div>
+
+      <!-- Banner Destacado: Canal de WhatsApp -->
+      <a href="https://whatsapp.com/channel/0029Vb9C7g04tRrstKFJXZ0H" target="_blank" class="block w-full glass-card rounded-2xl p-4 border-emerald-500/50 bg-gradient-to-r from-emerald-950/70 via-slate-900/90 to-emerald-950/70 shadow-lg shadow-emerald-950/60 group">
+        <div class="flex items-center gap-3.5">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-2xl shrink-0 font-bold group-hover:scale-110 transition-transform">
+            💬
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center justify-between mb-0.5">
+              <h2 class="font-extrabold text-emerald-400 text-sm flex items-center gap-1.5">
+                Canal Oficial de WhatsApp
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              </h2>
+              <span class="text-[10px] font-black uppercase tracking-wider bg-emerald-500 text-slate-950 px-2 py-0.5 rounded-full">Gratis</span>
+            </div>
+            <p class="text-xs text-slate-300">Alertas al momento de subastas de CETES, cambios de tasa en Banxico y avisos fiscales del SAT.</p>
+          </div>
+        </div>
+      </a>
+
+      <!-- 1. Revolut México ($300-$800 MXN Bono) -->
+      <div class="glass-card rounded-2xl p-4 relative overflow-hidden">
+        <div class="flex items-center gap-3.5">
+          <div class="w-11 h-11 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center font-bold text-xl shrink-0">
+            🌍
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center justify-between">
+              <h3 class="font-bold text-white text-sm">Revolut México</h3>
+              <button type="button" data-copy="surbalo" title="Copiar código" class="copy-btn text-[10px] font-mono font-bold text-blue-400 bg-blue-950/80 px-2 py-0.5 rounded border border-blue-500/30 hover:brightness-125">Cód: surbalo 📋</button>
+            </div>
+            <p class="text-xs text-slate-400 mb-2">Cuenta multimoneda internacional, compras al extranjero sin comisiones bancarias.</p>
+            <a href="https://revolut.com/referral/?referral-code=surbalo&geo-redirect" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-bold text-blue-400 hover:text-blue-300">
+              <span>Abrir Revolut con Beneficios</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Plata Card (Cashback hasta 5%) -->
+      <div class="glass-card rounded-2xl p-4">
+        <div class="flex items-center gap-3.5">
+          <div class="w-11 h-11 rounded-xl bg-orange-500/20 text-orange-400 flex items-center justify-center font-bold text-xl shrink-0">
+            💳
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center justify-between">
+              <h3 class="font-bold text-white text-sm">Plata Card (Hasta 5% Cashback)</h3>
+              <span class="text-[10px] font-bold text-emerald-400 bg-emerald-950/80 px-2 py-0.5 rounded">Sin Anualidad</span>
+            </div>
+            <p class="text-xs text-slate-400 mb-2">Tarjeta de crédito con cashback directo en efectivo en categorías personalizables.</p>
+            <a href="https://bancoplata.mx/amigos/cuenta/surbalo1" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-400 hover:text-emerald-300">
+              <span>Solicitar Plata Card con Bono</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. GBM+ (Acción de Regalo $250-$350 MXN) -->
+      <div class="glass-card rounded-2xl p-4">
+        <div class="flex items-center gap-3.5">
+          <div class="w-11 h-11 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-bold text-xl shrink-0">
+            📈
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center justify-between">
+              <h3 class="font-bold text-white text-sm">GBM+ | Primera Acción Gratis</h3>
+              <button type="button" data-copy="KW00W4" title="Copiar código" class="copy-btn text-[10px] font-mono font-bold text-cyan-400 bg-cyan-950/80 border border-cyan-500/30 px-2 py-0.5 rounded hover:brightness-125">KW00W4 📋</button>
+            </div>
+            <p class="text-xs text-slate-400 mb-2">Abre tu cuenta de inversión, canjea el código en 'Recompensas' y recibe una acción gratis.</p>
+            <a href="https://promos.gbm.com/ovq7" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-bold text-cyan-400 hover:text-cyan-300">
+              <span>Abre tu cuenta y canjea KW00W4</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Openbank (Santander Digital - 13% Anual) -->
+      <div class="glass-card rounded-2xl p-4">
+        <div class="flex items-center gap-3.5">
+          <div class="w-11 h-11 rounded-xl bg-red-500/20 text-red-400 flex items-center justify-center font-bold text-xl shrink-0">
+            🏦
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center justify-between">
+              <h3 class="font-bold text-white text-sm">Openbank (Santander Digital)</h3>
+              <span class="text-[10px] font-bold text-red-400 bg-red-950/80 px-2 py-0.5 rounded">13% Anual IPAB</span>
+            </div>
+            <p class="text-xs text-slate-400 mb-2">Rendimiento bancario garantizado por IPAB de hasta $3.2 Millones con respaldo Santander.</p>
+            <div class="flex items-center justify-between">
+              <button type="button" data-copy="12844811261919201752" title="Copiar código" class="copy-btn text-left text-[11px] font-mono text-slate-400 hover:brightness-125">Cód: 12844811261919201752 📋</button>
+              <a href="https://openbank.mx" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-bold text-red-400 hover:text-red-300">
+                <span>Abrir Cuenta</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Cuenta Nu (Cajita Turbo 13% Anual, ref. oct 2026) -->
+      <div class="glass-card rounded-2xl p-4">
+        <div class="flex items-center gap-3.5">
+          <div class="w-11 h-11 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center font-bold text-xl shrink-0">
+            🟣
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center justify-between">
+              <h3 class="font-bold text-white text-sm">Cuenta Nu (Cajitas con Rendimiento)</h3>
+              <span class="text-[10px] font-bold text-purple-400 bg-purple-950/80 px-2 py-0.5 rounded">Liquidez 24/7</span>
+            </div>
+            <p class="text-xs text-slate-400 mb-2">Rendimiento diario compuesto, transferencias SPEI al segundo y cero comisiones de manejo.</p>
+            <a href="https://nubank.com.mx/mgm/?id=WxPOcsH3gm1HTXcqv6Pf5Q&msg=06478&utm_channel=referral&utm_medium=other&utm_source=mgm" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-bold text-purple-400 hover:text-purple-300">
+              <span>Solicitar Cuenta Nu</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. Mercado Pago (15% Diario) -->
+      <div class="glass-card rounded-2xl p-4">
+        <div class="flex items-center gap-3.5">
+          <div class="w-11 h-11 rounded-xl bg-sky-500/20 text-sky-400 flex items-center justify-center font-bold text-xl shrink-0">
+            💰
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center justify-between">
+              <h3 class="font-bold text-white text-sm">Mercado Pago (15% Diario)</h3>
+              <span class="text-[10px] font-bold text-sky-400 bg-sky-950/80 px-2 py-0.5 rounded">A la vista</span>
+            </div>
+            <p class="text-xs text-slate-400 mb-2">Tu dinero genera ganancias todos los días sin plazos forzosos y disponible para pagar servicios.</p>
+            <a href="https://mpago.li/16YZWXB" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-bold text-sky-400 hover:text-sky-300">
+              <span>Activar Rendimientos en MP</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7. Klar (Tarjeta de Crédito Sin Buró) -->
+      <div class="glass-card rounded-2xl p-4">
+        <div class="flex items-center gap-3.5">
+          <div class="w-11 h-11 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-xl shrink-0">
+            💙
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center justify-between">
+              <h3 class="font-bold text-white text-sm">Klar (Tarjeta Sin Buró / Inversión)</h3>
+              <button type="button" data-copy="NEQ1N0FB" title="Copiar código" class="copy-btn text-[10px] font-mono text-emerald-400 bg-emerald-950/80 px-2 py-0.5 rounded hover:brightness-125">Cód: NEQ1N0FB 📋</button>
+            </div>
+            <p class="text-xs text-slate-400 mb-2">Aprobación garantizada para reparar tu score o iniciar historial crediticio en México. Rendimiento referencial de hasta 15.0% anual (referencial, verificar en portal oficial).</p>
+            <a href="https://signup.klar.mx/?code=NEQ1N0FB&utm_source=Referral&utm_medium=Referral" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-400 hover:text-emerald-300">
+              <span>Solicitar Klar Aquí</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8. Finsus (SOFIPO promo 11.0% a 120 días, ref. oct 2026) -->
+      <div class="glass-card rounded-2xl p-4">
+        <div class="flex items-center gap-3.5">
+          <div class="w-11 h-11 rounded-xl bg-teal-500/20 text-teal-400 flex items-center justify-center font-bold text-xl shrink-0">
+            🏦
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center justify-between">
+              <h3 class="font-bold text-white text-sm">Finsus (SOFIPO Tasa Fija)</h3>
+              <button type="button" data-copy="GONZALEZ-30727" title="Copiar código" class="copy-btn text-[10px] font-mono text-teal-400 bg-teal-950/80 px-2 py-0.5 rounded hover:brightness-125">GONZALEZ-30727 📋</button>
+            </div>
+            <p class="text-xs text-slate-400 mb-2">Ahorro a plazo fijo mensual y anual protegido por el seguro PROSOFIPO. Tasa referencial promocional 11.0% anual a 120 días (referencial, verificar en portal oficial).</p>
+            <a href="https://finsus.app/ref/GONZALEZ-30727" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-bold text-teal-400 hover:text-teal-300">
+              <span>Abrir Finsus con Bono</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9. Didi Cuenta (Rendimiento Diario) -->
+      <div class="glass-card rounded-2xl p-4">
+        <div class="flex items-center gap-3.5">
+          <div class="w-11 h-11 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold text-xl shrink-0">
+            📱
+          </div>
+          <div class="flex-1 min-w-0">
+            <h3 class="font-bold text-white text-sm">Didi Cuenta (Rendimientos Diarios)</h3>
+            <p class="text-xs text-slate-400 mb-2">Intereses diarios sobre saldo disponible con transferencias SPEI gratis.</p>
+            <a href="https://dinero.onelink.me/tcD9/1re6e78s" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-bold text-amber-400 hover:text-amber-300">
+              <span>Descargar Didi Cuenta</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 10. DolarApp / ARQ (Dólares Digitales USDc) -->
+      <div class="glass-card rounded-2xl p-4">
+        <div class="flex items-center gap-3.5">
+          <div class="w-11 h-11 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-xl shrink-0">
+            💵
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center justify-between">
+              <h3 class="font-bold text-white text-sm">DolarApp (ARQ) | Dólares USDc</h3>
+              <button type="button" data-copy="surbalo1_FzA" title="Copiar código" class="copy-btn text-[10px] font-mono text-emerald-400 bg-emerald-950/80 px-2 py-0.5 rounded hover:brightness-125">surbalo1_FzA 📋</button>
+            </div>
+            <p class="text-xs text-slate-400 mb-2">Protege tu patrimonio de la devaluación comprando USDc al mejor tipo de cambio oficial.</p>
+            <a href="https://www.arqfinance.com/referrals/general?referralCode=surbalo1_FzA&pid=referral&c=general&is_retargeting=true" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-400 hover:text-emerald-300">
+              <span>Dolarizar Ahorros</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 11. Bitso (Criptomonedas Reguladas) -->
+      <div class="glass-card rounded-2xl p-4">
+        <div class="flex items-center gap-3.5">
+          <div class="w-11 h-11 rounded-xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center font-bold text-xl shrink-0">
+            ₿
+          </div>
+          <div class="flex-1 min-w-0">
+            <h3 class="font-bold text-white text-sm">Bitso (Cripto Seguro en México)</h3>
+            <p class="text-xs text-slate-400 mb-2">Compra Bitcoin, Ethereum y dólares digitales desde $100 pesos mexicanos.</p>
+            <a href="https://bitso.go.link/1wIuX?adj_label=hvnso" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-bold text-indigo-400 hover:text-indigo-300">
+              <span>Empezar en Bitso</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Plantilla gratis (CTA) -->
+      <div class="rounded-2xl p-5 border border-emerald-500/30 bg-gradient-to-br from-emerald-500/15 to-cyan-500/10 flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
+        <span class="text-4xl" aria-hidden="true">📊</span>
+        <div class="flex-1">
+          <h3 class="font-extrabold text-white">Plantilla Excel de finanzas, gratis</h3>
+          <p class="text-xs text-slate-300 mt-1">Presupuesto 50/30/20, Bola de Nieve para deudas, tracker de rendimientos y semáforo SAT.</p>
+        </div>
+        <button type="button" onclick="switchTab('excel');document.getElementById('main-nav').scrollIntoView({behavior:'smooth'})" class="shrink-0 bg-gradient-to-r from-emerald-400 to-cyan-400 text-slate-950 font-extrabold px-5 py-3 rounded-xl text-sm">📥 Descargar gratis</button>
+      </div>
+
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!-- TAB 2: SIMULADOR DE RENDIMIENTOS + GRÁFICA CHART.JS    -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <section id="content-rendimientos" role="tabpanel" aria-labelledby="tab-rendimientos" tabindex="0" class="hidden space-y-5 focus:outline-none">
+      <div class="glass-panel rounded-3xl p-6">
+        <div class="flex items-center justify-between mb-1">
+          <h2 class="text-lg font-bold text-white flex items-center gap-2">
+            <i data-lucide="trending-up" class="w-5 h-5 text-emerald-400"></i>
+            <span>Simulador de Rendimientos en México</span>
+          </h2>
+          <span class="text-[10px] font-mono text-emerald-400 bg-emerald-950 px-2 py-0.5 rounded border border-emerald-500/30">Tasas 2026</span>
+        </div>
+        <p class="text-xs text-slate-400 mb-6">Calcula tus ganancias brutas estimadas diarias, mensuales y proyecta el interés compuesto acumulado.</p>
+
+        <!-- Slider de Monto Interactivo -->
+        <div class="mb-5">
+          <div class="flex items-center justify-between mb-2">
+            <label for="input-monto" class="text-xs text-slate-300 font-semibold uppercase tracking-wider">Monto a Invertir:</label>
+            <span id="label-monto" aria-live="polite" class="text-2xl font-extrabold text-emerald-400 font-mono">$50,000 MXN</span>
+          </div>
+          <input type="range" id="input-monto" min="1000" max="300000" step="1000" value="50000" inputmode="decimal" class="w-full h-2.5 bg-slate-800 rounded-lg appearance-none cursor-pointer">
+          <div class="flex justify-between text-[10px] text-slate-400 font-mono mt-2">
+            <button type="button" onclick="setMonto(10000)" class="hover:text-emerald-400">$10,000</button>
+            <button type="button" onclick="setMonto(50000)" class="hover:text-emerald-400">$50,000</button>
+            <button type="button" onclick="setMonto(100000)" class="hover:text-emerald-400">$100,000</button>
+            <button type="button" onclick="setMonto(213973)" class="hover:text-amber-400 font-bold">$213,973 (Tope UMA)</button>
+          </div>
+        </div>
+
+        <!-- Tarjetas de Resultados Comparativos -->
+        <div class="space-y-3 mb-6" aria-live="polite">
+          
+          <p class="text-[10px] text-slate-400 text-center mt-3 leading-relaxed">
+            Rendimientos brutos anuales estimados. No incluye retención provisional de ISR sobre intereses (Art. 54 LISR; SOFIPOs exentas hasta 5 UMAs bajo Art. 93 frac. XX inciso b) LISR). Tasas referenciales a octubre 2026, verificar en portal oficial de cada entidad.
+          </p>
+          <!-- Mercado Pago (15%) -->
+          <div class="bg-slate-900/90 border border-sky-500/40 rounded-2xl p-4 flex items-center justify-between">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="font-bold text-white text-sm">Mercado Pago</span>
+                <span class="text-[10px] font-bold text-sky-400 bg-sky-950 px-2 py-0.5 rounded border border-sky-500/30">15.0% Anual (Fondo GBM)</span>
+              </div>
+              <div class="text-xs text-slate-400 mt-1 font-mono">
+                Día: <span id="mp-dia" class="text-sky-300 font-semibold">$20.55</span> · Mes: <span id="mp-mes" class="text-sky-300 font-semibold">$625.00</span>
+              </div>
+            </div>
+            <div class="text-right">
+              <div id="mp-ano" class="text-lg font-extrabold text-sky-400 font-mono">+$7,500</div>
+              <a href="https://mpago.li/16YZWXB" target="_blank" class="text-[11px] text-sky-400 hover:underline font-semibold flex items-center justify-end gap-1">
+                <span>Activar</span>
+                <i data-lucide="arrow-right" class="w-3 h-3"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Openbank Santander (13%) -->
+          <div class="bg-slate-900/90 border border-red-500/30 rounded-2xl p-4 flex items-center justify-between">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="font-bold text-white text-sm">Openbank (Santander)</span>
+                <span class="text-[10px] font-bold text-red-400 bg-red-950 px-2 py-0.5 rounded border border-red-500/30">13.0% IPAB (400k UDIs)</span>
+              </div>
+              <div class="text-xs text-slate-400 mt-1 font-mono">
+                Día: <span id="ob-dia" class="text-red-300 font-semibold">$17.81</span> · Mes: <span id="ob-mes" class="text-red-300 font-semibold">$541.67</span>
+              </div>
+            </div>
+            <div class="text-right">
+              <div id="ob-ano" class="text-lg font-extrabold text-red-400 font-mono">+$6,500</div>
+              <a href="https://openbank.mx" target="_blank" class="text-[11px] text-red-400 hover:underline font-semibold flex items-center justify-end gap-1">
+                <span>Abrir</span>
+                <i data-lucide="arrow-right" class="w-3 h-3"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Nu Cajita Turbo (13%) -->
+          <div class="bg-slate-900/90 border border-purple-500/30 rounded-2xl p-4 flex items-center justify-between">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="font-bold text-white text-sm">Cuenta Nu (Cajitas)</span>
+                <span class="text-[10px] font-bold text-purple-400 bg-purple-950 px-2 py-0.5 rounded border border-purple-500/30">13.0% Anual Cajita Turbo (sujeta a requisitos y límites de Nu; el resto de Cajitas paga menos; referencial, verificar en portal oficial)</span>
+              </div>
+              <div class="text-xs text-slate-400 mt-1 font-mono">
+                Día: <span id="nu-dia" class="text-purple-300 font-semibold">$17.81</span> · Mes: <span id="nu-mes" class="text-purple-300 font-semibold">$541.67</span>
+              </div>
+            </div>
+            <div class="text-right">
+              <div id="nu-ano" class="text-lg font-extrabold text-purple-400 font-mono">+$6,500</div>
+              <a href="https://nubank.com.mx/mgm/?id=WxPOcsH3gm1HTXcqv6Pf5Q&msg=06478&utm_channel=referral&utm_medium=other&utm_source=mgm" target="_blank" class="text-[11px] text-purple-400 hover:underline font-semibold flex items-center justify-end gap-1">
+                <span>Solicitar</span>
+                <i data-lucide="arrow-right" class="w-3 h-3"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- CETES 28D (6.49%) -->
+          <div class="bg-slate-900/90 border border-emerald-500/30 rounded-2xl p-4 flex items-center justify-between">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="font-bold text-white text-sm">CETES Directo</span>
+                <span class="text-[10px] font-bold text-emerald-400 bg-emerald-950 px-2 py-0.5 rounded border border-emerald-500/30">6.49% Respaldo Gubernamental</span>
+              </div>
+              <div class="text-xs text-slate-400 mt-1 font-mono">
+                Día: <span id="cetes-dia" class="text-emerald-300 font-semibold">$8.89</span> · Mes: <span id="cetes-mes" class="text-emerald-300 font-semibold">$270.42</span>
+              </div>
+            </div>
+            <div class="text-right">
+              <div id="cetes-ano" class="text-lg font-extrabold text-emerald-400 font-mono">+$3,245</div>
+              <span class="text-[10px] text-slate-400">Tasa Banxico / Subasta reciente</span>
+            </div>
+          </div>
+
+          <!-- Banco Tradicional (1.5%) -->
+          <div class="bg-slate-900/40 border border-slate-800 rounded-2xl p-4 flex items-center justify-between opacity-50">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="font-bold text-slate-300 text-sm">Banco Tradicional (BBVA/Banamex)</span>
+                <span class="text-[10px] text-slate-400 bg-slate-800 px-2 py-0.5 rounded">1.5% Anual</span>
+              </div>
+              <div class="text-xs text-slate-400 mt-1 font-mono">
+                Día: <span id="trad-dia">$2.05</span> · Mes: <span id="trad-mes">$62.50</span>
+              </div>
+            </div>
+            <div class="text-right">
+              <div id="trad-ano" class="text-sm font-bold text-slate-400 font-mono">+$750</div>
+              <span class="text-[10px] text-rose-400 font-semibold">Pierdes dinero vs Inflación</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- GRÁFICA INTERACTIVA DE INTERÉS COMPUESTO (CHART.JS) -->
+        <div class="bg-slate-950/70 border border-slate-800 rounded-2xl p-4">
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1.5">
+              <i data-lucide="bar-chart-2" class="w-4 h-4 text-emerald-400"></i>
+              <span>Proyección de Interés Compuesto (1 a 5 Años)</span>
+            </h3>
+            <span class="text-[10px] text-slate-400 font-mono">Reinvirtiendo rendimientos</span>
+          </div>
+          <div class="w-full h-64">
+            <canvas id="chart-rendimientos" role="img" aria-label="Gráfica de proyección de crecimiento con interés compuesto a 5 años comparando Mercado Pago, Openbank, Nu, CETES y Banco Tradicional"></canvas>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!-- TAB: CALCULADORA DE RETIRO Y AFORE 2026 (LEY 97 / IMSS) -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <section id="content-afore" role="tabpanel" aria-labelledby="tab-afore" tabindex="0" class="hidden space-y-5 focus:outline-none">
+      <div class="glass-panel rounded-3xl p-6 relative overflow-hidden">
+        
+        <div class="flex items-center gap-3 mb-2">
+          <div class="w-12 h-12 rounded-2xl bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold text-2xl shrink-0">
+            🏦
+          </div>
+          <div>
+            <span class="text-[10px] font-black uppercase tracking-wider text-amber-400 bg-amber-950 px-2 py-0.5 rounded border border-amber-500/30">Ley 97 / Reforma 2026</span>
+            <h2 class="text-lg font-extrabold text-white">Simulador de Retiro & AFORE con Interés Compuesto</h2>
+          </div>
+        </div>
+        <p class="text-xs text-slate-300 mb-6">
+          Calcula cuánto dinero acumularás al jubilarte, tu pensión mensual estimada y el impacto multiplicador de hacer aportaciones voluntarias deducibles de impuestos. Proyección en pesos constantes (poder adquisitivo 2026, tasa real neta 5.5% anual y aportación obligatoria del 11.875% en 2026).
+        </p>
+
+        <!-- Controles Slider -->
+        <div class="space-y-4 mb-6">
+          <!-- Edad Actual -->
+          <div class="bg-slate-900/60 p-3.5 rounded-2xl border border-slate-800">
+            <div class="flex justify-between items-center text-xs mb-1.5 font-semibold">
+              <label for="input-afore-edad" class="text-slate-300 flex items-center gap-1.5 cursor-pointer"><i data-lucide="calendar" class="w-3.5 h-3.5 text-amber-400"></i> Tu Edad Actual</label>
+              <span id="label-afore-edad" aria-live="polite" class="font-mono text-amber-400 font-bold text-sm">30 años</span>
+            </div>
+            <input type="range" id="input-afore-edad" min="18" max="60" value="30" step="1" inputmode="decimal" class="w-full accent-amber-500">
+          </div>
+
+          <!-- Edad de Retiro -->
+          <div class="bg-slate-900/60 p-3.5 rounded-2xl border border-slate-800">
+            <div class="flex justify-between items-center text-xs mb-1.5 font-semibold">
+              <label for="input-afore-retiro" class="text-slate-300 flex items-center gap-1.5 cursor-pointer"><i data-lucide="clock" class="w-3.5 h-3.5 text-amber-400"></i> Edad de Retiro Deseada</label>
+              <span id="label-afore-retiro" aria-live="polite" class="font-mono text-amber-400 font-bold text-sm">65 años</span>
+            </div>
+            <input type="range" id="input-afore-retiro" min="60" max="70" value="65" step="1" inputmode="decimal" class="w-full accent-amber-500">
+          </div>
+
+          <!-- Salario Mensual Bruto -->
+          <div class="bg-slate-900/60 p-3.5 rounded-2xl border border-slate-800">
+            <div class="flex justify-between items-center text-xs mb-1.5 font-semibold">
+              <label for="input-afore-salario" class="text-slate-300 flex items-center gap-1.5 cursor-pointer"><i data-lucide="badge-dollar-sign" class="w-3.5 h-3.5 text-amber-400"></i> Salario Mensual Bruto Cotizado (IMSS)</label>
+              <span id="label-afore-salario" aria-live="polite" class="font-mono text-amber-400 font-bold text-sm">$25,000 MXN</span>
+            </div>
+            <input type="range" id="input-afore-salario" min="8000" max="80000" value="25000" step="1000" inputmode="decimal" class="w-full accent-amber-500">
+          </div>
+
+          <!-- Saldo Actual en Afore -->
+          <div class="bg-slate-900/60 p-3.5 rounded-2xl border border-slate-800">
+            <div class="flex justify-between items-center text-xs mb-1.5 font-semibold">
+              <label for="input-afore-saldo" class="text-slate-300 flex items-center gap-1.5 cursor-pointer"><i data-lucide="wallet" class="w-3.5 h-3.5 text-amber-400"></i> Saldo Actual en tu AFORE</label>
+              <span id="label-afore-saldo" aria-live="polite" class="font-mono text-amber-400 font-bold text-sm">$150,000 MXN</span>
+            </div>
+            <input type="range" id="input-afore-saldo" min="0" max="1000000" value="150000" step="10000" inputmode="decimal" class="w-full accent-amber-500">
+          </div>
+
+          <!-- Ahorro Voluntario Mensual -->
+          <div class="bg-gradient-to-r from-amber-950/40 via-slate-900 to-amber-950/40 p-4 rounded-2xl border border-amber-500/40 shadow-inner">
+            <div class="flex justify-between items-center text-xs mb-1.5 font-semibold">
+              <label for="input-afore-voluntario" class="text-amber-300 flex items-center gap-1.5 cursor-pointer"><i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-400"></i> Ahorro Voluntario Mensual (Tu Aportación)</label>
+              <span id="label-afore-voluntario" aria-live="polite" class="font-mono text-amber-400 font-bold text-base">$1,500 MXN</span>
+            </div>
+            <input type="range" id="input-afore-voluntario" min="0" max="10000" value="1500" step="250" inputmode="decimal" class="w-full accent-amber-500">
+            <p class="text-[11px] text-slate-400 mt-1.5">💡 Este dinero se invierte con interés compuesto y es deducible de impuestos ante el SAT (Art. 151 frac. V LISR).</p>
+          </div>
+        </div>
+
+        <!-- Tarjetas de Resultados Comparativos -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-6" aria-live="polite">
+          <!-- Saldo sin Ahorro Voluntario -->
+          <div class="bg-slate-900/80 p-4 rounded-2xl border border-slate-800">
+            <span class="text-[10px] text-slate-400 font-bold uppercase tracking-wider block mb-1">Sin Ahorro Voluntario (Solo Ley)</span>
+            <div id="afore-total-solo-ley" class="text-lg font-black text-slate-300 font-mono">$1,850,000</div>
+            <span class="text-[11px] text-slate-400 block mt-1">Pensión mensual estimada: <strong id="afore-pension-solo-ley" class="text-slate-300">$9,200/mes</strong></span>
+          </div>
+
+          <!-- Saldo con Ahorro Voluntario -->
+          <div class="bg-amber-950/50 p-4 rounded-2xl border border-amber-500/40 shadow-lg shadow-amber-950/30">
+            <div class="flex justify-between items-center mb-1">
+              <span class="text-[10px] text-amber-400 font-black uppercase tracking-wider">Con Ahorro Voluntario</span>
+              <span class="text-[9px] bg-amber-500 text-slate-950 px-1.5 py-0.5 rounded font-black">+PROYECCIÓN</span>
+            </div>
+            <div id="afore-total-con-vol" class="text-xl font-black text-amber-400 font-mono">$3,420,000</div>
+            <span class="text-[11px] text-amber-200/80 block mt-1">Pensión mensual estimada: <strong id="afore-pension-con-vol" class="text-amber-300 font-bold">$17,100/mes</strong></span>
+          </div>
+        </div>
+
+        <!-- Beneficio Fiscal SAT Anual Estimado -->
+        <div class="bg-emerald-950/30 border border-emerald-500/30 p-4 rounded-2xl flex items-center justify-between mb-6">
+          <div class="flex items-center gap-3">
+            <span class="text-2xl" aria-hidden="true">💸</span>
+            <div>
+              <div class="text-xs font-bold text-emerald-400">Devolución Estimada del SAT por Aportación</div>
+              <div class="text-[11px] text-slate-300">Saldo a favor que puedes pedir en tu declaración anual cada abril</div>
+            </div>
+          </div>
+          <div id="afore-devolucion-anual" aria-live="polite" class="font-mono font-black text-base text-emerald-400">+$3,600 MXN/año</div>
+        </div>
+
+        <!-- Gráfica de Crecimiento en el Tiempo -->
+        <div class="bg-slate-900/60 p-4 rounded-2xl border border-slate-800">
+          <div class="text-xs font-bold text-slate-300 mb-3 flex items-center gap-2">
+            <i data-lucide="line-chart" class="w-4 h-4 text-amber-400"></i> Proyección Acumulada hasta tu Retiro (Pesos Reales)
+          </div>
+          <div class="w-full h-64 relative">
+            <canvas id="chart-afore" role="img" aria-label="Gráfica de proyección de crecimiento acumulado de AFORE en pesos constantes hasta la edad de retiro"></canvas>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!-- TAB: SIMULADOR DE DEDUCCIONES Y DEVOLUCIÓN SAT 2026     -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <section id="content-deducciones" role="tabpanel" aria-labelledby="tab-deducciones" tabindex="0" class="hidden space-y-5 focus:outline-none">
+      <div class="glass-panel rounded-3xl p-6 relative overflow-hidden">
+        
+        <div class="flex items-center gap-3 mb-2">
+          <div class="w-12 h-12 rounded-2xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-bold text-2xl shrink-0">
+            🧾
+          </div>
+          <div>
+            <span class="text-[10px] font-black uppercase tracking-wider text-cyan-400 bg-cyan-950 px-2 py-0.5 rounded border border-cyan-500/30">Declaración Anual 2026</span>
+            <h2 class="text-lg font-extrabold text-white">Simulador de Deducciones Personales & Saldo a Favor</h2>
+          </div>
+        </div>
+        <p class="text-xs text-slate-300 mb-6 leading-relaxed">
+          Ingresa tus gastos anuales facturados con CFDI. Tope general Art. 151 LISR: menor entre 5 UMAs anuales ($213,973.20 MXN, INEGI 2026) o 15% del ingreso. Aplica a gastos médicos e hipoteca. Las colegiaturas quedan fuera de ese tope y solo tienen su límite por nivel educativo (Decreto DOF 26/12/2013). PPR tiene sublímite independiente (10% / 5 UMAs).
+        </p>
+
+        <!-- Controles Slider -->
+        <div class="space-y-4 mb-6">
+          <!-- Ingreso Anual Bruto -->
+          <div class="bg-slate-900/60 p-3.5 rounded-2xl border border-slate-800">
+            <div class="flex justify-between items-center text-xs mb-1.5 font-semibold">
+              <label for="input-sat-ingreso" class="text-slate-300 flex items-center gap-1.5 cursor-pointer"><i data-lucide="briefcase" class="w-3.5 h-3.5 text-cyan-400"></i> Ingresos Anuales Brutos Totales</label>
+              <span id="label-sat-ingreso" aria-live="polite" class="font-mono text-cyan-400 font-bold text-sm">$360,000 MXN</span>
+            </div>
+            <input type="range" id="input-sat-ingreso" min="100000" max="1500000" value="360000" step="20000" inputmode="decimal" class="w-full accent-cyan-500">
+            <span class="text-[11px] text-slate-400 block mt-1">Sueldo mensual aproximado: <span id="label-sat-ingreso-mes" class="text-slate-300 font-mono">$30,000/mes</span></span>
+          </div>
+
+          <!-- Gastos Médicos y Dentales -->
+          <div class="bg-slate-900/60 p-3.5 rounded-2xl border border-slate-800">
+            <div class="flex justify-between items-center text-xs mb-1.5 font-semibold">
+              <label for="input-sat-medicos" class="text-slate-300 flex items-center gap-1.5 cursor-pointer"><i data-lucide="heart-pulse" class="w-3.5 h-3.5 text-cyan-400"></i> Gastos Médicos, Dentales, Lentes y Psicología</label>
+              <span id="label-sat-medicos" aria-live="polite" class="font-mono text-cyan-400 font-bold text-sm">$15,000 MXN</span>
+            </div>
+            <input type="range" id="input-sat-medicos" min="0" max="80000" value="15000" step="2000" inputmode="decimal" class="w-full accent-cyan-500">
+          </div>
+
+          <!-- Intereses Reales Hipoteca -->
+          <div class="bg-slate-900/60 p-3.5 rounded-2xl border border-slate-800">
+            <div class="flex justify-between items-center text-xs mb-1.5 font-semibold">
+              <label for="input-sat-hipoteca" class="text-slate-300 flex items-center gap-1.5 cursor-pointer"><i data-lucide="home" class="w-3.5 h-3.5 text-cyan-400"></i> Intereses Reales de Hipoteca (Infonavit / Banco)</label>
+              <span id="label-sat-hipoteca" aria-live="polite" class="font-mono text-cyan-400 font-bold text-sm">$25,000 MXN</span>
+            </div>
+            <input type="range" id="input-sat-hipoteca" min="0" max="100000" value="25000" step="2500" inputmode="decimal" class="w-full accent-cyan-500">
+          </div>
+
+          <!-- Aportaciones PPR / Retiro Art. 151 -->
+          <div class="bg-slate-900/60 p-3.5 rounded-2xl border border-slate-800">
+            <div class="flex justify-between items-center text-xs mb-1.5 font-semibold">
+              <label for="input-sat-ppr" class="text-slate-300 flex items-center gap-1.5 cursor-pointer"><i data-lucide="shield" class="w-3.5 h-3.5 text-cyan-400"></i> Plan Personal de Retiro (PPR) / AFORE Voluntaria</label>
+              <span id="label-sat-ppr" aria-live="polite" class="font-mono text-cyan-400 font-bold text-sm">$20,000 MXN</span>
+            </div>
+            <input type="range" id="input-sat-ppr" min="0" max="150000" value="20000" step="5000" inputmode="decimal" class="w-full accent-cyan-500">
+            <span class="text-[10px] text-cyan-400 block mt-1">✨ Art. 151 frac. V: Sublímite propio de hasta el 10% de ingresos o 5 UMAs.</span>
+          </div>
+
+          <!-- Colegiaturas -->
+          <div class="bg-slate-900/60 p-3.5 rounded-2xl border border-slate-800">
+            <div class="flex justify-between items-center text-xs mb-1.5 font-semibold">
+              <label for="input-sat-colegiaturas" class="text-slate-300 flex items-center gap-1.5 cursor-pointer"><i data-lucide="graduation-cap" class="w-3.5 h-3.5 text-cyan-400"></i> Colegiaturas y Transporte Escolar Obligatorio</label>
+              <span id="label-sat-colegiaturas" aria-live="polite" class="font-mono text-cyan-400 font-bold text-sm">$10,000 MXN</span>
+            </div>
+            <input type="range" id="input-sat-colegiaturas" min="0" max="50000" value="10000" step="2500" inputmode="decimal" class="w-full accent-cyan-500">
+            <label for="select-sat-nivel" class="text-[10px] text-cyan-400 block mt-1">🎓 Nivel educativo (sublímite Decreto DOF 26/12/2013):</label>
+            <select id="select-sat-nivel" class="mt-1 w-full bg-slate-800 border border-slate-700 rounded-lg py-1.5 px-2 text-xs text-white font-mono focus:border-cyan-400 focus:outline-none">
+              <option value="preescolar">Preescolar — hasta $14,200</option>
+              <option value="primaria">Primaria — hasta $12,900</option>
+              <option value="secundaria">Secundaria — hasta $19,900</option>
+              <option value="profesional_tecnico">Prof. Técnico — hasta $17,100</option>
+              <option value="bachillerato" selected>Bachillerato — hasta $24,500</option>
+            </select>
+            <span class="text-[10px] text-amber-400 block mt-1.5">⚠️ Confirma con un contador; los límites pueden cambiar.</span>
+          </div>
+        </div>
+
+        <!-- Tarjeta de Saldo a Favor Estimado (Resultado) -->
+        <div class="bg-gradient-to-br from-emerald-950/80 via-slate-900 to-teal-950/80 border-2 border-emerald-500/50 p-5 rounded-3xl shadow-xl shadow-emerald-950/50 mb-6 relative overflow-hidden" aria-live="polite">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs font-black uppercase tracking-wider text-emerald-400 flex items-center gap-1.5">
+              <i data-lucide="check-circle-2" class="w-4 h-4"></i> Devolución Estimada en Abril
+            </span>
+            <span class="text-[10px] bg-emerald-500 text-slate-950 px-2 py-0.5 rounded-full font-black">SALDO A FAVOR</span>
+          </div>
+          <div id="sat-devolucion-estimada" class="text-3xl font-black text-emerald-300 font-mono mb-2">$14,700 MXN</div>
+          <p class="text-xs text-slate-300">
+            Estimación aproximada y educativa. La devolución real depende de tus retenciones patronales, régimen fiscal, CFDI válidos y deducciones autorizadas; confírmala en el simulador oficial del SAT.
+          </p>
+
+          <div class="grid grid-cols-2 gap-2 mt-4 pt-3 border-t border-slate-800 text-[11px]">
+            <div>
+              <span class="text-slate-400 block">Deducciones Aplicables:</span>
+              <strong id="sat-total-deducciones" class="text-white font-mono">$70,000 MXN</strong>
+            </div>
+            <div>
+              <span class="text-slate-400 block">Tasa Marginal ISR:</span>
+              <strong id="sat-tasa-marginal" class="text-emerald-400 font-mono">21.36%</strong>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Semáforo de Límite Legal (Tope 5 UMAs / 15%) -->
+        <div class="bg-slate-900/60 p-4 rounded-2xl border border-slate-800">
+          <div class="flex justify-between items-center text-xs mb-1.5 font-bold">
+            <span class="text-slate-300">Uso del Límite de Deducciones Generales</span>
+            <span id="sat-tope-pct" class="font-mono text-cyan-400 font-black">74%</span>
+          </div>
+          <div class="w-full h-3 bg-slate-800 rounded-full overflow-hidden mb-2">
+            <div id="sat-tope-bar" class="h-full bg-gradient-to-r from-cyan-500 to-emerald-400 rounded-full transition-all duration-300" style="width: 74%;"></div>
+          </div>
+          <p id="sat-tope-desc" class="text-[11px] text-slate-400">
+            Aún te quedan <strong id="sat-margen-disponible" class="text-cyan-300">$14,000 MXN</strong> de margen para deducir antes del 31 de diciembre.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!-- TAB 3: CALCULADORA INFONAVIT + AMORTIZACIÓN CHART.JS   -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <section id="content-infonavit" role="tabpanel" aria-labelledby="tab-infonavit" tabindex="0" class="hidden space-y-5 focus:outline-none">
+      <div class="glass-panel rounded-3xl p-6">
+        <h2 class="text-lg font-bold text-white mb-1 flex items-center gap-2">
+          <i data-lucide="home" class="w-5 h-5 text-cyan-400"></i>
+          <span>Calculadora Infonavit: Abonos a Capital</span>
+        </h2>
+        <p class="text-xs text-slate-400 mb-6">
+          Simula el impacto matemático de realizar abonos extraordinarios directos a capital para reducir el plazo y los intereses totales de tu crédito hipotecario.
+        </p>
+
+        <div class="space-y-4 mb-6">
+          <div>
+            <label for="info-saldo" class="text-xs text-slate-300 font-semibold block mb-1 cursor-pointer">Saldo Actual de tu Crédito:</label>
+            <div class="relative">
+              <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 font-bold" aria-hidden="true">$</span>
+              <input type="number" id="info-saldo" value="600000" min="0" max="10000000" step="10000" inputmode="decimal" class="w-full bg-slate-900 border border-slate-700 rounded-xl py-2.5 pl-8 pr-4 font-mono font-bold text-white text-sm focus:border-cyan-400 focus:outline-none">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label for="info-tasa" class="text-xs text-slate-300 font-semibold block mb-1 cursor-pointer">Tasa Anual (%):</label>
+              <input type="number" id="info-tasa" value="10.45" min="1.0" max="30.0" step="0.1" inputmode="decimal" class="w-full bg-slate-900 border border-slate-700 rounded-xl py-2.5 px-3 font-mono font-bold text-white text-sm focus:border-cyan-400 focus:outline-none">
+            </div>
+            <div>
+              <label for="info-mensualidad" class="text-xs text-slate-300 font-semibold block mb-1 cursor-pointer">Mensualidad Actual:</label>
+              <div class="relative">
+                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 font-bold" aria-hidden="true">$</span>
+                <input type="number" id="info-mensualidad" value="6200" min="100" max="200000" step="100" inputmode="decimal" class="w-full bg-slate-900 border border-slate-700 rounded-xl py-2.5 pl-7 pr-3 font-mono font-bold text-white text-sm focus:border-cyan-400 focus:outline-none">
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <label for="info-abono" class="text-xs text-emerald-400 font-bold block mb-1 cursor-pointer">Abono Extra Mensual a Capital:</label>
+            <div class="relative">
+              <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-emerald-400 font-bold" aria-hidden="true">$</span>
+              <input type="number" id="info-abono" value="1000" min="0" max="100000" step="250" inputmode="decimal" class="w-full bg-emerald-950/40 border border-emerald-500/50 rounded-xl py-2.5 pl-8 pr-4 font-mono font-bold text-emerald-300 text-sm focus:border-emerald-400 focus:outline-none">
+            </div>
+          </div>
+        </div>
+
+        <!-- Tarjetas de Impacto en Vivo -->
+        <div class="grid grid-cols-2 gap-3 mb-6" aria-live="polite">
+          <div class="bg-cyan-950/40 border border-cyan-500/30 rounded-2xl p-4 text-center">
+            <span class="text-[11px] uppercase tracking-wider font-semibold text-cyan-300 block mb-1">Años Reducidos</span>
+            <span id="info-res-anos" class="text-2xl sm:text-3xl font-extrabold text-cyan-400 font-mono">11 Años</span>
+            <span class="text-[10px] text-slate-400 block mt-1">de 25 pasas a 14 años</span>
+          </div>
+          <div class="bg-emerald-950/40 border border-emerald-500/30 rounded-2xl p-4 text-center">
+            <span class="text-[11px] uppercase tracking-wider font-semibold text-emerald-300 block mb-1">Ahorro en Intereses</span>
+            <span id="info-res-ahorro" class="text-2xl sm:text-3xl font-extrabold text-emerald-400 font-mono">$384,500</span>
+            <span class="text-[10px] text-slate-400 block mt-1">dinero que te quedas tú</span>
+          </div>
+        </div>
+
+        <!-- GRÁFICA DE AMORTIZACIÓN COMPARATIVA (CHART.JS) -->
+        <div class="bg-slate-950/70 border border-slate-800 rounded-2xl p-4 mb-4">
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1.5">
+              <i data-lucide="line-chart" class="w-4 h-4 text-cyan-400"></i>
+              <span>Curva de Deuda Restante (Años)</span>
+            </h3>
+            <span class="text-[10px] text-slate-400 font-mono">Sin Abono vs Con Abono</span>
+          </div>
+          <div class="w-full h-64">
+            <canvas id="chart-infonavit" role="img" aria-label="Gráfica de amortización y curva comparativa de deuda de crédito hipotecario"></canvas>
+          </div>
+        </div>
+
+        <div class="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 text-xs text-slate-300 flex items-start gap-2.5">
+          <i data-lucide="alert-circle" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+          <span><strong>Regla de oro:</strong> Al transferir por SPEI o ventanilla bancaria a tu cuenta Infonavit, especifica que es <strong>Abono Directo a Capital</strong> para evitar que lo registren como mensualidades por adelantado.</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!-- TAB 4: CALCULADORA SAT / SOFIPOS (SEMÁFORO 5 UMAS)     -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <section id="content-sofipos" role="tabpanel" aria-labelledby="tab-sofipos" tabindex="0" class="hidden space-y-5 focus:outline-none">
+      <div class="glass-panel rounded-3xl p-6">
+        <div class="flex items-center justify-between mb-1">
+          <h2 class="text-lg font-bold text-white flex items-center gap-2">
+            <i data-lucide="shield-check" class="w-5 h-5 text-amber-400"></i>
+            <span>Semáforo Fiscal SAT & Seguro PROSOFIPO 2026</span>
+          </h2>
+          <span class="text-[10px] font-mono text-amber-400 bg-amber-950 px-2 py-0.5 rounded border border-amber-500/30">Art. 93 LISR</span>
+        </div>
+        <p class="text-xs text-slate-400 mb-6 leading-relaxed">
+          En México, las SOFIPOs (como Klar y Finsus) tienen dos umbrales clave: <strong>1) Exención Fiscal</strong> de 5 UMAs anuales (~$213,973 MXN en 2026 bajo Art. 93 frac. XX inciso b) LISR; INEGI) y <strong>2) Seguro de Depósito PROSOFIPO</strong> de 25,000 UDIs (~$208,750 MXN a UDI $8.35 bajo Ley de Ahorro y Crédito Popular). <strong>Nu ya no es SOFIPO:</strong> hoy es banco (Nubank, S.A., Institución de Banca Múltiple), lo protege el IPAB hasta 400,000 UDIs y no entra en esta suma. Según Nu, sus <strong>Cajitas</strong> están exentas hasta 5 UMAs al año (~$213,973 MXN, sobre saldo promedio diario); el <strong>Ahorro Congelado</strong> paga ISR por todos sus intereses; y la <strong>Cajita Turbo</strong> da 13% solo hasta $25,000 (Nu no aclara su trato fiscal). Revisa tu constancia de intereses de Nu.
+        </p>
+
+        <div class="mb-5">
+          <label for="sofipo-saldo" class="text-xs text-slate-300 font-semibold block mb-1 cursor-pointer">Total Depositado en SOFIPOs (Suma Klar + Finsus + otras SOFIPOs):</label>
+          <div class="relative">
+            <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 font-bold" aria-hidden="true">$</span>
+            <input type="number" id="sofipo-saldo" value="180000" min="0" max="2000000" step="5000" inputmode="decimal" class="w-full bg-slate-900 border border-slate-700 rounded-xl py-2.5 pl-8 pr-4 font-mono font-bold text-white text-sm focus:border-amber-400 focus:outline-none">
+          </div>
+        </div>
+
+        <!-- Barra Visual Gauge / Semáforo de Capacidad -->
+        <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-4 mb-4">
+          <div class="flex justify-between items-center text-xs font-bold mb-1.5">
+            <span class="text-slate-300">Nivel de Ocupación del Tope Legal ($213,973 MXN):</span>
+            <span id="sofipo-pct" aria-live="polite" class="font-mono text-emerald-400">87.2%</span>
+          </div>
+          <div class="w-full bg-slate-800 rounded-full h-4 overflow-hidden p-0.5 border border-slate-700">
+            <div id="sofipo-bar" class="h-full rounded-full transition-all duration-500 bg-gradient-to-r from-emerald-500 to-teal-400" style="width: 87.2%"></div>
+          </div>
+          <div class="flex justify-between text-[10px] text-slate-400 font-mono mt-1.5">
+            <span>$0 (Seguro)</span>
+            <span class="text-amber-400 font-bold">$213,973 (5 UMAs)</span>
+            <span>$300,000+</span>
+          </div>
+        </div>
+
+        <!-- Tarjeta Dinámica de Estado Fiscal -->
+        <div id="sofipo-status-card" class="rounded-2xl p-5 border transition-all mb-4 bg-emerald-950/40 border-emerald-500/40" aria-live="polite">
+          <div class="flex items-center gap-3 mb-2">
+            <span id="sofipo-icon" class="text-3xl" aria-hidden="true">🟢</span>
+            <div>
+              <h3 id="sofipo-status-title" class="font-bold text-emerald-400 text-sm">100% EXENTO DE IMPUESTOS (ISR $0)</h3>
+              <p id="sofipo-status-desc" class="text-xs text-slate-300">Estás por debajo del tope de 5 UMAs. Todo tu rendimiento es libre de impuestos.</p>
+            </div>
+          </div>
+          <div class="pt-3 border-t border-slate-800/80 flex justify-between text-xs font-mono">
+            <span class="text-slate-400">Límite 5 UMAs 2026:</span>
+            <span class="font-bold text-white">$213,973 MXN</span>
+          </div>
+          <div class="pt-1.5 flex justify-between text-xs font-mono">
+            <span class="text-slate-400">Margen Libre Disponible:</span>
+            <span id="sofipo-margen" class="font-bold text-emerald-400">$26,480 MXN</span>
+          </div>
+        </div>
+
+        <!-- Comparativa Seguro PROSOFIPO vs IPAB Bancario -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4 text-xs">
+          <div class="p-3.5 bg-slate-900/80 border border-slate-800 rounded-xl">
+            <div class="flex items-center justify-between font-bold text-slate-200 mb-1">
+              <span>Seguro PROSOFIPO</span>
+              <span class="text-[10px] text-amber-400 font-mono">25,000 UDIs</span>
+            </div>
+            <p class="text-[11px] text-slate-400">Cobertura de hasta <strong>~$208,750 MXN</strong> por persona física por entidad (Ley de Ahorro y Crédito Popular, Art. 105).</p>
+          </div>
+          <div class="p-3.5 bg-slate-900/80 border border-slate-800 rounded-xl">
+            <div class="flex items-center justify-between font-bold text-slate-200 mb-1">
+              <span>Seguro IPAB (Bancos)</span>
+              <span class="text-[10px] text-cyan-400 font-mono">400,000 UDIs</span>
+            </div>
+            <p class="text-[11px] text-slate-400">Cobertura de hasta <strong>~$3,340,000 MXN</strong> por persona por banco (Ley de Protección al Ahorro Bancario).</p>
+          </div>
+        </div>
+
+        <!-- Recomendación Estratégica -->
+        <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 text-xs text-slate-300">
+          <p class="font-bold text-white mb-1.5 flex items-center gap-1.5">
+            <i data-lucide="zap" class="w-4 h-4 text-amber-400"></i>
+            <span>Estrategia de Optimización Fiscal y Protección de Capital:</span>
+          </p>
+          <p class="leading-relaxed">
+            El límite fiscal de 5 UMAs (\$213,973.20 MXN en 2026, INEGI) es acumulable por RFC en todo el sistema SOFIPO. El seguro PROSOFIPO cubre hasta 25,000 UDIs (~$208,750 MXN) por entidad. Una vez alcanzado ese nivel, diversifica tus excedentes hacia <strong>CETES Directo</strong> o <strong>Bancos regulados como Nu u Openbank</strong> (respaldados por el seguro IPAB de 400,000 UDIs) para maximizar protección y rendimiento.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!-- TAB 5: PLANTILLA EXCEL OFICIAL (DESCARGA GRATIS)       -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <section id="content-excel" class="hidden space-y-5">
+      <div class="glass-panel rounded-3xl p-6 relative overflow-hidden">
+        
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-2xl shrink-0">
+            📊
+          </div>
+          <div>
+            <span class="text-[10px] font-black uppercase tracking-wider text-emerald-400 bg-emerald-950 px-2 py-0.5 rounded border border-emerald-500/30">Versión 2026 Oficial</span>
+            <h2 class="text-lg font-extrabold text-white">Plantilla Maestra de Finanzas Peso a Peso</h2>
+          </div>
+        </div>
+
+        <p class="text-xs text-slate-300 mb-6 leading-relaxed">
+          Nuestra plantilla en Excel 100% formulada y automatizada para ordenar tus ingresos, liquidar deudas de tarjetas de crédito y monitorear tus rendimientos diarios.
+        </p>
+
+        <!-- Módulos Incluidos en el Excel -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+          <div class="bg-slate-900/80 border border-slate-800 rounded-xl p-3.5 flex items-start gap-2.5">
+            <span class="text-lg">🎯</span>
+            <div>
+              <h4 class="text-xs font-bold text-white">Regla 50 / 30 / 20</h4>
+              <p class="text-[11px] text-slate-400">Distribución automática de necesidades, deseos y ahorro según tu ingreso neto.</p>
+            </div>
+          </div>
+          <div class="bg-slate-900/80 border border-slate-800 rounded-xl p-3.5 flex items-start gap-2.5">
+            <span class="text-lg">🏔️</span>
+            <div>
+              <h4 class="text-xs font-bold text-white">Método Bola de Nieve</h4>
+              <p class="text-[11px] text-slate-400">Ordena tus deudas por saldo menor para pagarlas rápido y ahorrar miles en intereses.</p>
+            </div>
+          </div>
+          <div class="bg-slate-900/80 border border-slate-800 rounded-xl p-3.5 flex items-start gap-2.5">
+            <span class="text-lg">📈</span>
+            <div>
+              <h4 class="text-xs font-bold text-white">Tracker de Rendimientos</h4>
+              <p class="text-[11px] text-slate-400">Monitoreo de ganancias diarias en Nu, CETES, Mercado Pago y Openbank.</p>
+            </div>
+          </div>
+          <div class="bg-slate-900/80 border border-slate-800 rounded-xl p-3.5 flex items-start gap-2.5">
+            <span class="text-lg">🛡️</span>
+            <div>
+              <h4 class="text-xs font-bold text-white">Semáforo Fiscal SAT</h4>
+              <p class="text-[11px] text-slate-400">Alertas automáticas al acercarte al tope de 5 UMAs exentas de ISR en SOFIPOs.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Botón de Descarga Directa -->
+        <a href="plantilla_finanzas_peso_a_peso.xlsx" download="Plantilla_Finanzas_Peso_a_Peso.xlsx" class="w-full block bg-gradient-to-r from-emerald-500 via-teal-400 to-emerald-500 hover:from-emerald-400 hover:to-teal-300 text-slate-950 font-extrabold text-center py-3.5 px-6 rounded-2xl shadow-xl shadow-emerald-500/25 transition-all transform active:scale-98 flex items-center justify-center gap-2">
+          <i data-lucide="download" class="w-5 h-5"></i>
+          <span>Descargar Plantilla Excel (.xlsx) Gratis</span>
+        </a>
+        <p class="text-center text-[11px] text-slate-400 mt-2">Compatible con Microsoft Excel, Google Sheets y LibreOffice.</p>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer y Redes Oficiales (7 Plataformas) -->
+  <section class="reveal closing w-full max-w-3xl mx-4 mb-10 rounded-3xl border border-emerald-500/20 p-8 sm:p-10 text-center z-10" aria-labelledby="cierre-t">
+    <h2 id="cierre-t" class="text-2xl sm:text-3xl font-extrabold text-white mb-3">Lo que sí hacemos. Lo que no.</h2>
+    <div class="grid sm:grid-cols-2 gap-4 text-left text-sm text-slate-300 my-6">
+      <div class="spot rounded-2xl border border-emerald-500/20 bg-emerald-950/20 p-4"><strong class="text-emerald-300 block mb-1">Sí</strong>Explicar conceptos, mostrar cuentas con tus números y decirte dónde verificar cada tasa.</div>
+      <div class="spot rounded-2xl border border-rose-500/20 bg-rose-950/20 p-4"><strong class="text-rose-300 block mb-1">No</strong>Prometer rendimientos, dar asesoría personalizada ni presentarnos como un experto financiero humano: el narrador es virtual.</div>
+    </div>
+    <a href="https://whatsapp.com/channel/0029Vb9C7g04tRrstKFJXZ0H" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold px-6 py-3 rounded-2xl text-sm transition-transform hover:scale-[1.03]">Recibir alertas en WhatsApp <i data-lucide="arrow-up-right" class="w-4 h-4"></i></a>
+  </section>
+
+  <footer class="w-full max-w-2xl border-t border-slate-800/80 pt-8 pb-28 sm:pb-14 px-4 text-center z-10">
+    <div class="flex items-center justify-center flex-wrap gap-3.5 text-slate-400 mb-6">
+      <!-- YouTube -->
+      <a href="https://youtube.com/@PesoAPesoConRafa" target="_blank" class="p-2.5 bg-slate-900/90 border border-slate-800 rounded-xl hover:text-red-500 hover:border-red-500/40 transition-all group" title="YouTube Shorts">
+        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+      </a>
+      <!-- TikTok -->
+      <a href="https://tiktok.com/@pesoaapesoconrafa" target="_blank" class="p-2.5 bg-slate-900/90 border border-slate-800 rounded-xl hover:text-cyan-400 hover:border-cyan-400/40 transition-all group" title="TikTok">
+        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.24 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+      </a>
+      <!-- Instagram -->
+      <a href="https://instagram.com/pesoaapesoconrafa" target="_blank" class="p-2.5 bg-slate-900/90 border border-slate-800 rounded-xl hover:text-pink-500 hover:border-pink-500/40 transition-all group" title="Instagram Reels">
+        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      </a>
+      <!-- Threads -->
+      <a href="https://www.threads.net/@pesoaapesoconrafa" target="_blank" class="p-2.5 bg-slate-900/90 border border-slate-800 rounded-xl hover:text-purple-400 hover:border-purple-400/40 transition-all group" title="Threads">
+        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12.186 24C5.466 24 .012 18.636 0 12.043 0 5.404 5.454.04 12.174.04c3.483 0 6.643 1.437 8.92 4.048l-2.88 2.378c-1.583-1.858-3.765-2.88-6.04-2.88-4.664 0-8.455 3.754-8.455 8.457 0 4.703 3.791 8.457 8.455 8.457 3.082 0 5.485-1.45 6.432-3.882.355-.91.543-1.92.543-3.003h-6.975v-3.545h10.52c.07.603.107 1.22.107 1.854 0 2.23-.464 4.298-1.343 6.143C19.457 21.602 16.148 24 12.186 24z"/></svg>
+      </a>
+      <!-- 𝕏 (Twitter) -->
+      <a href="https://x.com/pesoaapesorafa" target="_blank" class="p-2.5 bg-slate-900/90 border border-slate-800 rounded-xl hover:text-white hover:border-slate-400 transition-all group" title="𝕏 (@pesoaapesorafa)">
+        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </a>
+      <!-- Facebook -->
+      <a href="https://facebook.com/profile.php?id=61594333436523" target="_blank" class="p-2.5 bg-slate-900/90 border border-slate-800 rounded-xl hover:text-blue-500 hover:border-blue-500/40 transition-all group" title="Facebook">
+        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      </a>
+      <!-- WhatsApp Channel -->
+      <a href="https://whatsapp.com/channel/0029Vb9C7g04tRrstKFJXZ0H" target="_blank" class="p-2.5 bg-slate-900/90 border border-slate-800 rounded-xl hover:text-emerald-400 hover:border-emerald-500/40 transition-all group" title="WhatsApp Channel">
+        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+      </a>
+    </div>
+
+    <p class="text-xs text-slate-400 font-semibold mb-1">
+      Peso a Peso con Rafa © 2026 · Todos los derechos reservados
+    </p>
+    <p class="text-[11px] text-slate-400 max-w-lg mx-auto leading-relaxed mb-2">
+      ⚖️ <strong>Aviso legal:</strong> Contenido exclusivamente educativo e informativo. No constituye asesoría financiera, fiscal ni recomendación de inversión personalizada. Los cálculos son simulaciones con fines ilustrativos basadas en tasas y regulaciones vigentes en 2026. Consulta siempre los términos y condiciones oficiales ante las entidades financieras y autoridades correspondientes (CNBV, CONDUSEF, Banxico, SAT, CONSAR).
+    </p>
+    <p class="text-[10px] text-slate-400 max-w-lg mx-auto leading-relaxed">
+      📢 <strong>Transparencia de afiliados:</strong> Algunos enlaces o códigos compartidos en este portal corresponden a programas de referidos o afiliados oficiales. El canal puede recibir una bonificación o comisión al utilizarlos, sin ningún costo adicional para ti.
+    </p>
+    <p class="text-[11px] text-slate-400 mt-2">
+      <a href="https://surbalo1.github.io/youtube-automation/privacy.html" class="underline hover:text-slate-200">Aviso de Privacidad</a> ·
+      <a href="https://surbalo1.github.io/youtube-automation/terminos.html" class="underline hover:text-slate-200">Términos de Uso</a>
+    </p>
+  </footer>
+
+  <!-- Capa 7: coordinador de movimiento -->
+  <script>
+    (function () {
+      document.documentElement.classList.remove('no-js');
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      // Reveal al hacer scroll
+      var els = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window && !reduce) {
+        var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { threshold: .12 });
+        els.forEach(function (el) { io.observe(el); });
+      } else { els.forEach(function (el) { el.classList.add('in'); }); }
+      // Un solo rAF: progreso de scroll + parallax de orbes
+      var bar = document.getElementById('scroll-progress'), orbs = document.querySelectorAll('.orb'), ticking = false;
+      function frame() {
+        var h = document.documentElement.scrollHeight - innerHeight, y = scrollY;
+        bar.style.transform = 'scaleX(' + (h > 0 ? y / h : 0) + ')';
+        if (!reduce) orbs.forEach(function (o) { o.style.transform = 'translate3d(0,' + (y * (o.dataset.depth || 0) / 100) + 'px,0)'; });
+        ticking = false;
+      }
+      addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }, { passive: true });
+      frame();
+      // Foco de luz que sigue el cursor (delegado, solo tarjetas)
+      var pending = null;
+      document.addEventListener('pointermove', function (ev) {
+        if (reduce || ev.pointerType === 'touch') return;
+        var t = ev.target.closest && ev.target.closest('.glass-card, .spot');
+        if (!t) return;
+        if (pending) cancelAnimationFrame(pending);
+        pending = requestAnimationFrame(function () { var r = t.getBoundingClientRect(); t.style.setProperty('--mx', (ev.clientX - r.left) + 'px'); t.style.setProperty('--my', (ev.clientY - r.top) + 'px'); });
+      }, { passive: true });
+      // Botón para pausar el movimiento continuo
+      var btn = document.createElement('button');
+      btn.type = 'button'; btn.setAttribute('aria-pressed', 'false');
+      btn.className = 'fixed bottom-20 sm:bottom-4 right-4 z-50 text-[11px] font-semibold bg-slate-900/90 border border-slate-700 text-slate-300 hover:text-white rounded-full px-3 py-1.5 backdrop-blur';
+      btn.textContent = 'Pausar animaciones';
+      btn.onclick = function () { var p = document.body.classList.toggle('motion-paused'); btn.setAttribute('aria-pressed', p); btn.textContent = p ? 'Reanudar animaciones' : 'Pausar animaciones'; };
+      document.body.appendChild(btn);
+    })();
+  </script>
+
+  <!-- LÓGICA DE LAS CALCULADORAS Y CHART.JS -->
+  <script>
+    // Inicializar íconos Lucide de forma segura
+    if (typeof lucide !== 'undefined' && lucide.createIcons) {
+      lucide.createIcons();
+    }
+
+    // ═════════════════════════════════════════════════════════════════
+    // OBJETO CALCULADORAS: LÓGICA PURA Y MODELO FINANCIERO 2026
+    // ═════════════════════════════════════════════════════════════════
+    const Calculadoras = {
+      // Constantes Oficiales 2026 y Fuentes Regulatorias
+      CONSTANTES: {
+        UMA_DIARIA_2026: 117.31,           // Verificado en INEGI (vigente desde 01/02/2026; https://www.inegi.org.mx/temas/uma/)
+        UMA_ANUAL_2026: 42794.64,          // Verificado en INEGI (UMA mensual $3,566.22 × 12, donde UMA mensual = $117.31 × 30.4 redondeado; https://www.inegi.org.mx/temas/uma/)
+        get TOPE_5_UMAS() { return 5 * this.UMA_ANUAL_2026; }, // $213,973.20 MXN (Art. 93 frac. XX LISR; derivado, no fijo)
+        VALOR_UDI_2026: 8.35,              // Por verificar en Banxico (https://www.banxico.org.mx/SieInternet/; 2026)
+        SEGURO_PROSOFIPO: 25000 * 8.35,    // ~$208,750 MXN (Art. 105 LACP; UDI por verificar en Banxico)
+        SEGURO_IPAB: 400000 * 8.35,        // ~$3,340,000 MXN (LPAB; UDI por verificar en Banxico)
+        TASA_RETENCION_ISR_CAPITAL: 0.005,  // 0.50% anual provisional (por verificar en LIF/SAT 2026)
+        APORTACION_AFORE_2026: 0.11875,    // 11.875% s/ salario (por verificar en DOF/LSS; Reforma 2020)
+        TASA_AFORE_REAL_NETA: 0.055,       // 5.5% real anual neto (por verificar en CONSAR; 2026)
+        FACTOR_PENSION_AFORE: 0.06,        // Retiro programado estimado 6.0% anual s/ saldo acumulado
+        LIMITES_COLEGIATURAS: {            // Decreto DOF 26/12/2013 (verificado; https://dof.gob.mx)
+          preescolar: 14200,
+          primaria: 12900,
+          secundaria: 19900,
+          profesional_tecnico: 17100,
+          bachillerato: 24500
+        }
+      },
+
+      // 1. Rendimientos a la vista y proyectados
+      calcRendimientos: function(monto) {
+        const m = Math.max(0, parseFloat(monto) || 0);
+        const tasas = {
+          mp: 0.15,
+          ob: 0.13,
+          nu: 0.13,
+          cetes: 0.0649,
+          trad: 0.015
+        };
+        const productos = {};
+        for (const [k, t] of Object.entries(tasas)) {
+          const ano = m * t;
+          const mes = ano / 12;
+          const dia = ano / 365;
+          productos[k] = { tasa: t, dia, mes, ano };
+        }
+        const years = [0, 1, 2, 3, 4, 5];
+        const proyecciones = {
+          labels: ['Inicio', 'Año 1', 'Año 2', 'Año 3', 'Año 4', 'Año 5'],
+          mp: years.map(y => m * Math.pow(1 + 0.15, y)),
+          ob: years.map(y => m * Math.pow(1 + 0.13, y)),
+          nu: years.map(y => m * Math.pow(1 + 0.13, y)),
+          cetes: years.map(y => m * Math.pow(1 + 0.0649, y)),
+          trad: years.map(y => m * Math.pow(1 + 0.015, y))
+        };
+        return { monto: m, productos, proyecciones };
+      },
+
+      // 2. Simulador Hipotecario Infonavit / Amortización
+      calcInfonavit: function(saldo, tasaAnual, cuota, abono) {
+        const s = Math.max(0, parseFloat(saldo) || 0);
+        const tAnual = parseFloat(tasaAnual) || 10.45;
+        const tMensual = (tAnual / 100) / 12;
+        const c = Math.max(0, parseFloat(cuota) || 0);
+        const a = Math.max(0, parseFloat(abono) || 0);
+
+        if (s <= 0 || c <= s * tMensual) {
+          return {
+            valido: false,
+            error: 'cuota_insuficiente',
+            anosReducidos: 0,
+            ahorroIntereses: 0,
+            mNormal: 0,
+            mAbono: 0,
+            curveNormal: [s],
+            curveAbono: [s]
+          };
+        }
+
+        // Simulación normal
+        let bNormal = s, mNormal = 0, intNormal = 0;
+        const curveNormal = [s];
+        while (bNormal > 0 && mNormal < 360) {
+          const interes = bNormal * tMensual;
+          intNormal += interes;
+          const amort = Math.min(bNormal, c - interes);
+          bNormal = Math.max(0, bNormal - amort);
+          mNormal++;
+          if (mNormal % 12 === 0 || bNormal <= 0) {
+            curveNormal.push(Math.round(bNormal));
+          }
+        }
+
+        // Simulación con abono a capital
+        let bAbono = s, mAbono = 0, intAbono = 0;
+        const curveAbono = [s];
+        while (bAbono > 0 && mAbono < 360) {
+          const interes = bAbono * tMensual;
+          intAbono += interes;
+          const amort = Math.min(bAbono, (c + a) - interes);
+          bAbono = Math.max(0, bAbono - amort);
+          mAbono++;
+          if (mAbono % 12 === 0 || bAbono <= 0) {
+            curveAbono.push(Math.round(bAbono));
+          }
+        }
+
+        const anosReducidos = Math.max(0, Math.round((mNormal - mAbono) / 12));
+        const ahorroIntereses = Math.max(0, Math.round(intNormal - intAbono));
+
+        return {
+          valido: true,
+          anosReducidos,
+          ahorroIntereses,
+          mNormal,
+          mAbono,
+          curveNormal,
+          curveAbono
+        };
+      },
+
+      // 3. Semáforo Fiscal SOFIPO y Cobertura PROSOFIPO
+      calcSofipo: function(saldo) {
+        const s = Math.max(0, parseFloat(saldo) || 0);
+        const TOPE_5_UMAS = Calculadoras.CONSTANTES.TOPE_5_UMAS;
+        const SEGURO_PROSOFIPO = Calculadoras.CONSTANTES.SEGURO_PROSOFIPO;
+        const SEGURO_IPAB = Calculadoras.CONSTANTES.SEGURO_IPAB;
+
+        const pct = Math.min(100, Math.round((s / TOPE_5_UMAS) * 100));
+        const cubiertoProsofipo = s <= SEGURO_PROSOFIPO;
+        const saldoDesprotegidoProsofipo = Math.max(0, s - SEGURO_PROSOFIPO);
+
+        if (s <= TOPE_5_UMAS) {
+          const margen = TOPE_5_UMAS - s;
+          const zona = pct < 85 ? 'verde' : 'amarilla';
+          return {
+            saldo: s,
+            tope5Umas: TOPE_5_UMAS,
+            pctUsoTope: pct,
+            exento: true,
+            excedente: 0,
+            retencionAnual: 0,
+            margenDisponible: margen,
+            zona,
+            cubiertoProsofipo,
+            saldoDesprotegidoProsofipo,
+            seguroProsofipo: SEGURO_PROSOFIPO,
+            seguroIpab: SEGURO_IPAB
+          };
+        } else {
+          const excedente = s - TOPE_5_UMAS;
+          const retencionAnual = excedente * Calculadoras.CONSTANTES.TASA_RETENCION_ISR_CAPITAL;
+          return {
+            saldo: s,
+            tope5Umas: TOPE_5_UMAS,
+            pctUsoTope: pct,
+            exento: false,
+            excedente,
+            retencionAnual,
+            margenDisponible: 0,
+            zona: 'roja',
+            cubiertoProsofipo,
+            saldoDesprotegidoProsofipo,
+            seguroProsofipo: SEGURO_PROSOFIPO,
+            seguroIpab: SEGURO_IPAB
+          };
+        }
+      },
+
+      // 4. Simulador AFORE y Retiro Ley 97
+      calcAfore: function(edadActual, edadRetiro, salario, saldoInicial, ahorroVoluntario) {
+        const eAct = Math.max(18, Math.min(90, parseInt(edadActual) || 30));
+        let eRet = Math.max(eAct + 1, Math.min(95, parseInt(edadRetiro) || 65));
+        const sal = Math.max(0, parseFloat(salario) || 0);
+        const sIni = Math.max(0, parseFloat(saldoInicial) || 0);
+        const aVol = Math.max(0, parseFloat(ahorroVoluntario) || 0);
+
+        const anos = eRet - eAct;
+        const meses = anos * 12;
+
+        const tasaMensual = Math.pow(1 + Calculadoras.CONSTANTES.TASA_AFORE_REAL_NETA, 1 / 12) - 1;
+        const aportacionObligatoria = sal * Calculadoras.CONSTANTES.APORTACION_AFORE_2026;
+
+        const factorCompuesto = Math.pow(1 + tasaMensual, meses);
+        const factorAnualidad = meses > 0 ? (factorCompuesto - 1) / tasaMensual : 0;
+
+        const saldoSoloLey = (sIni * factorCompuesto) + (aportacionObligatoria * factorAnualidad);
+        const saldoConVoluntario = (sIni * factorCompuesto) + ((aportacionObligatoria + aVol) * factorAnualidad);
+
+        const pensionSoloLey = (saldoSoloLey * Calculadoras.CONSTANTES.FACTOR_PENSION_AFORE) / 12;
+        const pensionConVoluntario = (saldoConVoluntario * Calculadoras.CONSTANTES.FACTOR_PENSION_AFORE) / 12;
+
+        let tasaMarginal = 0.1088;
+        if (sal > 100000) tasaMarginal = 0.34;
+        else if (sal > 62500) tasaMarginal = 0.30;
+        else if (sal > 37500) tasaMarginal = 0.2352;
+        else if (sal > 20833) tasaMarginal = 0.2136;
+        else if (sal > 12500) tasaMarginal = 0.1792;
+
+        const devolucionAnual = (aVol * 12) * tasaMarginal;
+
+        return {
+          edadActual: eAct,
+          edadRetiro: eRet,
+          meses,
+          salario: sal,
+          saldoInicial: sIni,
+          ahorroVoluntario: aVol,
+          tasaMensual,
+          aportacionObligatoria,
+          saldoSoloLey,
+          saldoConVoluntario,
+          pensionSoloLey,
+          pensionConVoluntario,
+          tasaMarginal,
+          devolucionAnual
+        };
+      },
+
+      // 5. Devolución de Impuestos SAT y Deducciones Personales 2026
+      calcDeducciones: function(ingresoAnual, medicos, hipoteca, ppr, colegiaturas, nivelEducativo) {
+        const ing = Math.max(0, parseFloat(ingresoAnual) || 0);
+        const med = Math.max(0, parseFloat(medicos) || 0);
+        const hip = Math.max(0, parseFloat(hipoteca) || 0);
+        const p = Math.max(0, parseFloat(ppr) || 0);
+        const col = Math.max(0, parseFloat(colegiaturas) || 0);
+
+        const UMA_5_ANUAL = Calculadoras.CONSTANTES.TOPE_5_UMAS;
+        const limites = Calculadoras.CONSTANTES.LIMITES_COLEGIATURAS;
+        const limiteNivel = (nivelEducativo && limites[nivelEducativo]) ? limites[nivelEducativo] : limites.bachillerato;
+
+        // Colegiaturas: sublímite por nivel educativo del Decreto DOF 26/12/2013
+        const colegiaturasValidas = Math.min(col, limiteNivel);
+
+        // Gastos Generales Art. 151 (Médicos + Hipoteca). Las colegiaturas son un estímulo del
+        // Decreto DOF 26/12/2013: solo su sublímite por nivel, fuera del tope general del Art. 151.
+        const gastosGenerales = med + hip;
+        const topeGeneral = Math.min(UMA_5_ANUAL, ing * 0.15);
+        const deduccionesGeneralesValidas = Math.min(gastosGenerales, topeGeneral);
+
+        // PPR (Art. 151 Fracc. V) - Límite independiente: menor entre 10% del ingreso o 5 UMAs
+        const topePpr = Math.min(UMA_5_ANUAL, ing * 0.10);
+        const pprValido = Math.min(p, topePpr);
+
+        const totalDeducciones = deduccionesGeneralesValidas + colegiaturasValidas + pprValido;
+
+        let tasaMarginal = 0.1088;
+        let tasaStr = "10.88%";
+        if (ing > 1200000) {
+          tasaMarginal = 0.34;
+          tasaStr = "34.00%";
+        } else if (ing > 750000) {
+          tasaMarginal = 0.30;
+          tasaStr = "30.00%";
+        } else if (ing > 450000) {
+          tasaMarginal = 0.2352;
+          tasaStr = "23.52%";
+        } else if (ing > 250000) {
+          tasaMarginal = 0.2136;
+          tasaStr = "21.36%";
+        } else if (ing > 150000) {
+          tasaMarginal = 0.1792;
+          tasaStr = "17.92%";
+        }
+
+        const devolucionEstimada = Math.round(totalDeducciones * tasaMarginal);
+        const pctUsoGeneral = topeGeneral > 0 ? Math.min(100, Math.round((gastosGenerales / topeGeneral) * 100)) : 0;
+        const margenGeneral = Math.max(0, topeGeneral - gastosGenerales);
+
+        return {
+          ingresoAnual: ing,
+          gastosGenerales,
+          topeGeneral,
+          deduccionesGeneralesValidas,
+          margenGeneral,
+          pctUsoGeneral,
+          topePpr,
+          pprValido,
+          limiteNivelColegiaturas: limiteNivel,
+          colegiaturasValidas,
+          totalDeducciones,
+          tasaMarginal,
+          tasaStr,
+          devolucionEstimada
+        };
+      }
+    };
+
+    // Exponer a window y CommonJS (para pruebas en Node.js)
+    if (typeof window !== 'undefined') {
+      window.Calculadoras = Calculadoras;
+    }
+    if (typeof module !== 'undefined' && module.exports) {
+      module.exports = Calculadoras;
+    }
+
+    // Formateador Monetario Seguro
+    function formatMoney(num) {
+      if (num === null || num === undefined || isNaN(num) || !isFinite(num)) {
+        return '$0';
+      }
+      return '$' + Math.max(0, Math.round(num)).toLocaleString('es-MX');
+    }
+
+    // ═════════════════════════════════════════════════════════════════
+    // GESTIÓN DE PESTAÑAS (TABS) Y ACCESIBILIDAD ARIA
+    // ═════════════════════════════════════════════════════════════════
+    let chartRendimientosInstance = null;
+    let chartInfonavitInstance = null;
+    let chartAforeInstance = null;
+
+    function switchTab(tab) {
+      const tabs = ['links', 'rendimientos', 'afore', 'deducciones', 'infonavit', 'sofipos', 'excel'];
+      tabs.forEach(t => {
+        const content = document.getElementById(`content-${t}`);
+        if (content) content.classList.add('hidden');
+        const btn = document.getElementById(`tab-${t}`);
+        if (btn) {
+          btn.classList.remove('active');
+          btn.classList.add('text-slate-400');
+          btn.setAttribute('aria-selected', 'false');
+        }
+      });
+
+      const activeContent = document.getElementById(`content-${tab}`);
+      if (activeContent) activeContent.classList.remove('hidden');
+      const activeBtn = document.getElementById(`tab-${tab}`);
+      if (activeBtn) {
+        activeBtn.classList.add('active');
+        activeBtn.classList.remove('text-slate-400');
+        activeBtn.setAttribute('aria-selected', 'true');
+      }
+
+      if (tab === 'rendimientos') {
+        if (!chartRendimientosInstance) {
+          initChartRendimientos();
+        } else {
+          chartRendimientosInstance.resize();
+        }
+      }
+
+      if (tab === 'infonavit') {
+        if (!chartInfonavitInstance) {
+          initChartInfonavit();
+        } else {
+          chartInfonavitInstance.resize();
+        }
+      }
+
+      if (tab === 'afore') {
+        if (!chartAforeInstance) {
+          initChartAfore();
+        } else {
+          chartAforeInstance.resize();
+        }
+      }
+
+      if (tab === 'deducciones') {
+        updateDeducciones();
+      }
+    }
+
+    // Navegación por teclado en tabs (Accesibilidad WAI-ARIA)
+    const mainNav = document.getElementById('main-nav');
+    if (mainNav) {
+      mainNav.addEventListener('keydown', (e) => {
+        const tabs = ['links', 'rendimientos', 'afore', 'deducciones', 'infonavit', 'sofipos', 'excel'];
+        const activeIndex = tabs.findIndex(t => {
+          const btn = document.getElementById(`tab-${t}`);
+          return btn && btn.getAttribute('aria-selected') === 'true';
+        });
+        let nextIndex = -1;
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+          nextIndex = (activeIndex + 1) % tabs.length;
+        } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+          nextIndex = (activeIndex - 1 + tabs.length) % tabs.length;
+        } else if (e.key === 'Home') {
+          nextIndex = 0;
+        } else if (e.key === 'End') {
+          nextIndex = tabs.length - 1;
+        }
+        if (nextIndex >= 0) {
+          e.preventDefault();
+          const nextTab = tabs[nextIndex];
+          const nextBtn = document.getElementById(`tab-${nextTab}`);
+          if (nextBtn) {
+            nextBtn.focus();
+            switchTab(nextTab);
+          }
+        }
+      });
+    }
+
+    // ═════════════════════════════════════════════════════════════════
+    // SECCIÓN RENDIMIENTOS
+    // ═════════════════════════════════════════════════════════════════
+    const inputMonto = document.getElementById('input-monto');
+    const labelMonto = document.getElementById('label-monto');
+
+    function setMonto(val) {
+      if (inputMonto) {
+        inputMonto.value = val;
+        updateRendimientos();
+      }
+    }
+
+    function updateRendimientos() {
+      if (!inputMonto) return;
+      const monto = parseFloat(inputMonto.value) || 0;
+      if (labelMonto) labelMonto.innerText = formatMoney(monto) + ' MXN';
+
+      const res = Calculadoras.calcRendimientos(monto);
+
+      for (let k in res.productos) {
+        const item = res.productos[k];
+        const elDia = document.getElementById(`${k}-dia`);
+        const elMes = document.getElementById(`${k}-mes`);
+        const elAno = document.getElementById(`${k}-ano`);
+
+        if (elDia) elDia.innerText = formatMoney(item.dia);
+        if (elMes) elMes.innerText = formatMoney(item.mes);
+        if (elAno) elAno.innerText = '+' + formatMoney(item.ano);
+      }
+
+      updateChartRendimientos(res.proyecciones);
+    }
+
+    function initChartRendimientos() {
+      if (typeof Chart === 'undefined') return;
+      const canvas = document.getElementById('chart-rendimientos');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const monto = inputMonto ? (parseFloat(inputMonto.value) || 0) : 50000;
+      const res = Calculadoras.calcRendimientos(monto);
+
+      chartRendimientosInstance = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: res.proyecciones.labels,
+          datasets: [
+            {
+              label: 'Mercado Pago (15%)',
+              data: res.proyecciones.mp,
+              borderColor: '#0284c7',
+              backgroundColor: 'rgba(2, 132, 199, 0.1)',
+              tension: 0.35,
+              borderWidth: 2.5
+            },
+            {
+              label: 'Openbank (13%)',
+              data: res.proyecciones.ob,
+              borderColor: '#ef4444',
+              backgroundColor: 'rgba(239, 68, 68, 0.08)',
+              tension: 0.35,
+              borderWidth: 2
+            },
+            {
+              label: 'Cuenta Nu Cajita Turbo (13%, sujeta a requisitos)',
+              data: res.proyecciones.nu,
+              borderColor: '#ff8a00',
+              backgroundColor: 'rgba(255, 138, 0, 0.08)',
+              tension: 0.35,
+              borderWidth: 2
+            },
+            {
+              label: 'CETES (6.49%)',
+              data: res.proyecciones.cetes,
+              borderColor: '#10b981',
+              backgroundColor: 'rgba(16, 185, 129, 0.08)',
+              tension: 0.35,
+              borderWidth: 2
+            },
+            {
+              label: 'Tradicional (1.5%)',
+              data: res.proyecciones.trad,
+              borderColor: '#64748b',
+              backgroundColor: 'transparent',
+              borderDash: [5, 5],
+              tension: 0.35,
+              borderWidth: 1.5
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              labels: { color: '#425466', font: { size: 10, family: 'Inter' } }
+            },
+            tooltip: {
+              callbacks: {
+                label: function(c) {
+                  return c.dataset.label + ': ' + formatMoney(c.parsed.y);
+                }
+              }
+            }
+          },
+          scales: {
+            x: {
+              grid: { color: 'rgba(10,37,64,0.07)' },
+              ticks: { color: '#5b6b7d', font: { size: 10 } }
+            },
+            y: {
+              grid: { color: 'rgba(10,37,64,0.07)' },
+              ticks: {
+                color: '#5b6b7d',
+                font: { size: 10 },
+                callback: function(v) { return formatMoney(v); }
+              }
+            }
+          }
+        }
+      });
+    }
+
+    function updateChartRendimientos(proyecciones) {
+      if (!chartRendimientosInstance || typeof Chart === 'undefined') return;
+      chartRendimientosInstance.data.datasets[0].data = proyecciones.mp;
+      chartRendimientosInstance.data.datasets[1].data = proyecciones.ob;
+      chartRendimientosInstance.data.datasets[2].data = proyecciones.nu;
+      chartRendimientosInstance.data.datasets[3].data = proyecciones.cetes;
+      chartRendimientosInstance.data.datasets[4].data = proyecciones.trad;
+      chartRendimientosInstance.update();
+    }
+
+    if (inputMonto) {
+      inputMonto.addEventListener('input', updateRendimientos);
+    }
+
+    // ═════════════════════════════════════════════════════════════════
+    // SECCIÓN INFONAVIT
+    // ═════════════════════════════════════════════════════════════════
+    const inputSaldo = document.getElementById('info-saldo');
+    const inputTasa = document.getElementById('info-tasa');
+    const inputMensualidad = document.getElementById('info-mensualidad');
+    const inputAbono = document.getElementById('info-abono');
+
+    function updateInfonavit() {
+      const saldo = inputSaldo ? (parseFloat(inputSaldo.value) || 0) : 0;
+      const tasa = inputTasa ? (parseFloat(inputTasa.value) || 10.45) : 10.45;
+      const cuota = inputMensualidad ? (parseFloat(inputMensualidad.value) || 0) : 0;
+      const abono = inputAbono ? (parseFloat(inputAbono.value) || 0) : 0;
+
+      const data = Calculadoras.calcInfonavit(saldo, tasa, cuota, abono);
+      const elAnos = document.getElementById('info-res-anos');
+      const elAhorro = document.getElementById('info-res-ahorro');
+
+      if (!data.valido) {
+        if (elAnos) elAnos.innerText = 'N/A';
+        if (elAhorro) elAhorro.innerText = 'Ajusta cuota';
+        return;
+      }
+
+      if (elAnos) elAnos.innerText = `${data.anosReducidos} Años`;
+      if (elAhorro) elAhorro.innerText = formatMoney(data.ahorroIntereses);
+
+      updateChartInfonavit(data);
+    }
+
+    function initChartInfonavit() {
+      if (typeof Chart === 'undefined') return;
+      const canvas = document.getElementById('chart-infonavit');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const saldo = inputSaldo ? (parseFloat(inputSaldo.value) || 0) : 0;
+      const tasa = inputTasa ? (parseFloat(inputTasa.value) || 10.45) : 10.45;
+      const cuota = inputMensualidad ? (parseFloat(inputMensualidad.value) || 0) : 0;
+      const abono = inputAbono ? (parseFloat(inputAbono.value) || 0) : 0;
+      const data = Calculadoras.calcInfonavit(saldo, tasa, cuota, abono);
+      if (!data.valido) return;
+
+      const maxYears = Math.ceil(data.mNormal / 12);
+      const labels = Array.from({length: maxYears + 1}, (_, i) => i === 0 ? 'Inicio' : `Año ${i}`);
+
+      chartInfonavitInstance = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: labels,
+          datasets: [
+            {
+              label: 'Sin Abono Extra (Tradicional)',
+              data: data.curveNormal,
+              borderColor: '#f43f5e',
+              backgroundColor: 'rgba(244, 63, 94, 0.08)',
+              tension: 0.25,
+              borderWidth: 2
+            },
+            {
+              label: 'Con Abono Extra a Capital',
+              data: data.curveAbono,
+              borderColor: '#06b6d4',
+              backgroundColor: 'rgba(6, 182, 212, 0.12)',
+              tension: 0.25,
+              borderWidth: 2.5
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              labels: { color: '#425466', font: { size: 10, family: 'Inter' } }
+            },
+            tooltip: {
+              callbacks: {
+                label: function(c) {
+                  return c.dataset.label + ': ' + formatMoney(c.parsed.y);
+                }
+              }
+            }
+          },
+          scales: {
+            x: {
+              grid: { color: 'rgba(10,37,64,0.07)' },
+              ticks: { color: '#5b6b7d', font: { size: 10 } }
+            },
+            y: {
+              grid: { color: 'rgba(10,37,64,0.07)' },
+              ticks: {
+                color: '#5b6b7d',
+                font: { size: 10 },
+                callback: function(v) { return formatMoney(v); }
+              }
+            }
+          }
+        }
+      });
+    }
+
+    function updateChartInfonavit(data) {
+      if (!chartInfonavitInstance || typeof Chart === 'undefined' || !data.valido) return;
+      const maxYears = Math.ceil(data.mNormal / 12);
+      chartInfonavitInstance.data.labels = Array.from({length: maxYears + 1}, (_, i) => i === 0 ? 'Inicio' : `Año ${i}`);
+      chartInfonavitInstance.data.datasets[0].data = data.curveNormal;
+      chartInfonavitInstance.data.datasets[1].data = data.curveAbono;
+      chartInfonavitInstance.update();
+    }
+
+    [inputSaldo, inputTasa, inputMensualidad, inputAbono].forEach(el => {
+      if (el) el.addEventListener('input', updateInfonavit);
+    });
+
+    // ═════════════════════════════════════════════════════════════════
+    // SECCIÓN SEMÁFORO FISCAL SAT SOFIPOS (5 UMAs)
+    // ═════════════════════════════════════════════════════════════════
+    const inputSofipo = document.getElementById('sofipo-saldo');
+
+    function updateSofipo() {
+      if (!inputSofipo) return;
+      const saldo = parseFloat(inputSofipo.value) || 0;
+      const res = Calculadoras.calcSofipo(saldo);
+
+      const card = document.getElementById('sofipo-status-card');
+      const icon = document.getElementById('sofipo-icon');
+      const title = document.getElementById('sofipo-status-title');
+      const desc = document.getElementById('sofipo-status-desc');
+      const margen = document.getElementById('sofipo-margen');
+      const pctLabel = document.getElementById('sofipo-pct');
+      const bar = document.getElementById('sofipo-bar');
+
+      if (pctLabel) pctLabel.innerText = `${res.pctUsoTope}%`;
+      if (bar) bar.style.width = `${res.pctUsoTope}%`;
+
+      if (res.exento) {
+        if (res.zona === 'verde') {
+          if (bar) bar.className = "h-full rounded-full transition-all duration-500 bg-gradient-to-r from-emerald-500 to-teal-400";
+          if (card) card.className = "rounded-2xl p-5 border transition-all mb-4 bg-emerald-950/40 border-emerald-500/40";
+          if (icon) icon.innerText = "🟢";
+          if (title) {
+            title.className = "font-bold text-emerald-400 text-sm";
+            title.innerText = "100% EXENTO DE IMPUESTOS (ISR $0)";
+          }
+          if (desc) desc.innerText = "Estás en zona verde segura por debajo de las 5 UMAs ($213,973.20 MXN en 2026). Todos tus rendimientos son legalmente libres de ISR.";
+          if (margen) {
+            margen.className = "font-bold text-emerald-400";
+            margen.innerText = formatMoney(res.margenDisponible) + ' MXN';
+          }
+        } else {
+          if (bar) bar.className = "h-full rounded-full transition-all duration-500 bg-gradient-to-r from-amber-500 to-yellow-400";
+          if (card) card.className = "rounded-2xl p-5 border transition-all mb-4 bg-amber-950/40 border-amber-500/40";
+          if (icon) icon.innerText = "🟡";
+          if (title) {
+            title.className = "font-bold text-amber-400 text-sm";
+            title.innerText = "ZONA DE ATENCIÓN: CERCA DEL LÍMITE LEGAL";
+          }
+          if (desc) desc.innerText = `Te quedan sólo ${formatMoney(res.margenDisponible)} MXN de margen antes de que el SAT comience a retener impuestos.`;
+          if (margen) {
+            margen.className = "font-bold text-amber-400";
+            margen.innerText = formatMoney(res.margenDisponible) + ' MXN';
+          }
+        }
+      } else {
+        if (bar) bar.className = "h-full rounded-full transition-all duration-500 bg-gradient-to-r from-rose-500 to-red-600";
+        if (card) card.className = "rounded-2xl p-5 border transition-all mb-4 bg-rose-950/40 border-rose-500/50";
+        if (icon) icon.innerText = "🔴";
+        if (title) {
+          title.className = "font-bold text-rose-400 text-sm";
+          title.innerText = `SUPERA EL TOPE FISCAL POR ${formatMoney(res.excedente)}`;
+        }
+        if (desc) desc.innerText = `El excedente generará retención provisional de ISR (~${formatMoney(res.retencionAnual)} al año a tasa 0.50%). Te sugerimos diversificar ese excedente a CETES o Bancos.`;
+        if (margen) {
+          margen.className = "font-bold text-rose-400";
+          margen.innerText = `Excedido por ${formatMoney(res.excedente)}`;
+        }
+      }
+    }
+
+    if (inputSofipo) {
+      inputSofipo.addEventListener('input', updateSofipo);
+    }
+
+    // ═════════════════════════════════════════════════════════════════
+    // SECCIÓN AFORE & RETIRO 2026
+    // ═════════════════════════════════════════════════════════════════
+    const inputAforeEdad = document.getElementById('input-afore-edad');
+    const inputAforeRetiro = document.getElementById('input-afore-retiro');
+    const inputAforeSalario = document.getElementById('input-afore-salario');
+    const inputAforeSaldo = document.getElementById('input-afore-saldo');
+    const inputAforeVoluntario = document.getElementById('input-afore-voluntario');
+
+    function updateAfore() {
+      if (!inputAforeEdad || !inputAforeRetiro) return;
+      const edadActual = parseInt(inputAforeEdad.value) || 30;
+      let edadRetiro = parseInt(inputAforeRetiro.value) || 65;
+      if (edadRetiro <= edadActual) {
+        edadRetiro = edadActual + 1;
+        inputAforeRetiro.value = edadRetiro;
+      }
+      const salario = inputAforeSalario ? (parseFloat(inputAforeSalario.value) || 25000) : 25000;
+      const saldoInicial = inputAforeSaldo ? (parseFloat(inputAforeSaldo.value) || 0) : 0;
+      const ahorroVoluntario = inputAforeVoluntario ? (parseFloat(inputAforeVoluntario.value) || 0) : 0;
+
+      const res = Calculadoras.calcAfore(edadActual, edadRetiro, salario, saldoInicial, ahorroVoluntario);
+
+      const elEdad = document.getElementById('label-afore-edad');
+      const elRetiro = document.getElementById('label-afore-retiro');
+      const elSalario = document.getElementById('label-afore-salario');
+      const elSaldo = document.getElementById('label-afore-saldo');
+      const elVoluntario = document.getElementById('label-afore-voluntario');
+
+      if (elEdad) elEdad.innerText = `${res.edadActual} años`;
+      if (elRetiro) elRetiro.innerText = `${res.edadRetiro} años`;
+      if (elSalario) elSalario.innerText = formatMoney(res.salario) + ' MXN';
+      if (elSaldo) elSaldo.innerText = formatMoney(res.saldoInicial) + ' MXN';
+      if (elVoluntario) elVoluntario.innerText = formatMoney(res.ahorroVoluntario) + ' MXN';
+
+      const elTotLey = document.getElementById('afore-total-solo-ley');
+      const elPenLey = document.getElementById('afore-pension-solo-ley');
+      const elTotVol = document.getElementById('afore-total-con-vol');
+      const elPenVol = document.getElementById('afore-pension-con-vol');
+      const elDev = document.getElementById('afore-devolucion-anual');
+
+      if (elTotLey) elTotLey.innerText = formatMoney(res.saldoSoloLey);
+      if (elPenLey) elPenLey.innerText = formatMoney(res.pensionSoloLey) + '/mes';
+      if (elTotVol) elTotVol.innerText = formatMoney(res.saldoConVoluntario);
+      if (elPenVol) elPenVol.innerText = formatMoney(res.pensionConVoluntario) + '/mes';
+      if (elDev) elDev.innerText = `+${formatMoney(res.devolucionAnual)} MXN/año`;
+
+      updateChartAfore(res);
+    }
+
+    function initChartAfore() {
+      if (typeof Chart === 'undefined') return;
+      const canvas = document.getElementById('chart-afore');
+      if (!canvas) return;
+      chartAforeInstance = new Chart(canvas.getContext('2d'), {
+        type: 'line',
+        data: {
+          labels: [],
+          datasets: [
+            {
+              label: 'Con Ahorro Voluntario',
+              data: [],
+              borderColor: '#f59e0b',
+              backgroundColor: 'rgba(245, 158, 11, 0.15)',
+              fill: true,
+              tension: 0.3,
+              borderWidth: 2.5
+            },
+            {
+              label: 'Solo AFORE de Ley',
+              data: [],
+              borderColor: '#94a3b8',
+              borderDash: [5, 5],
+              backgroundColor: 'transparent',
+              tension: 0.3,
+              borderWidth: 2
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { labels: { color: '#425466', font: { size: 11, weight: '600' } } }
+          },
+          scales: {
+            x: {
+              grid: { color: 'rgba(10,37,64,0.07)' },
+              ticks: { color: '#5b6b7d', font: { size: 10 } }
+            },
+            y: {
+              grid: { color: 'rgba(10,37,64,0.07)' },
+              ticks: {
+                color: '#5b6b7d',
+                font: { size: 10 },
+                callback: function(v) { return formatMoney(v); }
+              }
+            }
+          }
+        }
+      });
+      updateAfore();
+    }
+
+    function updateChartAfore(res) {
+      if (!chartAforeInstance || typeof Chart === 'undefined') return;
+      const labels = [];
+      const dataConVol = [];
+      const dataSinVol = [];
+
+      const paso = Math.max(1, Math.round((res.edadRetiro - res.edadActual) / 7));
+      for (let e = res.edadActual; e <= res.edadRetiro; e += paso) {
+        labels.push(`${e} años`);
+        const m = (e - res.edadActual) * 12;
+        const fc = Math.pow(1 + res.tasaMensual, m);
+        const fa = m > 0 ? (fc - 1) / res.tasaMensual : 0;
+        dataSinVol.push(Math.round((res.saldoInicial * fc) + (res.aportacionObligatoria * fa)));
+        dataConVol.push(Math.round((res.saldoInicial * fc) + ((res.aportacionObligatoria + res.ahorroVoluntario) * fa)));
+        if (e === res.edadRetiro) break;
+      }
+      if (labels[labels.length - 1] !== `${res.edadRetiro} años`) {
+        labels.push(`${res.edadRetiro} años`);
+        const m = (res.edadRetiro - res.edadActual) * 12;
+        const fc = Math.pow(1 + res.tasaMensual, m);
+        const fa = m > 0 ? (fc - 1) / res.tasaMensual : 0;
+        dataSinVol.push(Math.round((res.saldoInicial * fc) + (res.aportacionObligatoria * fa)));
+        dataConVol.push(Math.round((res.saldoInicial * fc) + ((res.aportacionObligatoria + res.ahorroVoluntario) * fa)));
+      }
+
+      chartAforeInstance.data.labels = labels;
+      chartAforeInstance.data.datasets[0].data = dataConVol;
+      chartAforeInstance.data.datasets[1].data = dataSinVol;
+      chartAforeInstance.update();
+    }
+
+    [inputAforeEdad, inputAforeRetiro, inputAforeSalario, inputAforeSaldo, inputAforeVoluntario].forEach(el => {
+      if (el) el.addEventListener('input', updateAfore);
+    });
+
+    // ═════════════════════════════════════════════════════════════════
+    // SECCIÓN DEVOLUCIÓN DE IMPUESTOS SAT 2026
+    // ═════════════════════════════════════════════════════════════════
+    const inputSatIngreso = document.getElementById('input-sat-ingreso');
+    const inputSatMedicos = document.getElementById('input-sat-medicos');
+    const inputSatHipoteca = document.getElementById('input-sat-hipoteca');
+    const inputSatPpr = document.getElementById('input-sat-ppr');
+    const inputSatColegiaturas = document.getElementById('input-sat-colegiaturas');
+    const selectSatNivel = document.getElementById('select-sat-nivel');
+
+    function updateDeducciones() {
+      if (!inputSatIngreso) return;
+      const ingresoAnual = parseFloat(inputSatIngreso.value) || 0;
+      const medicos = inputSatMedicos ? (parseFloat(inputSatMedicos.value) || 0) : 0;
+      const hipoteca = inputSatHipoteca ? (parseFloat(inputSatHipoteca.value) || 0) : 0;
+      const ppr = inputSatPpr ? (parseFloat(inputSatPpr.value) || 0) : 0;
+      const colegiaturas = inputSatColegiaturas ? (parseFloat(inputSatColegiaturas.value) || 0) : 0;
+      const nivelEducativo = selectSatNivel ? selectSatNivel.value : 'bachillerato';
+
+      const res = Calculadoras.calcDeducciones(ingresoAnual, medicos, hipoteca, ppr, colegiaturas, nivelEducativo);
+
+      const elIng = document.getElementById('label-sat-ingreso');
+      const elIngMes = document.getElementById('label-sat-ingreso-mes');
+      const elMed = document.getElementById('label-sat-medicos');
+      const elHip = document.getElementById('label-sat-hipoteca');
+      const elPpr = document.getElementById('label-sat-ppr');
+      const elCol = document.getElementById('label-sat-colegiaturas');
+
+      if (elIng) elIng.innerText = formatMoney(res.ingresoAnual) + ' MXN';
+      if (elIngMes) elIngMes.innerText = formatMoney(res.ingresoAnual / 12) + '/mes';
+      if (elMed) elMed.innerText = formatMoney(medicos) + ' MXN';
+      if (elHip) elHip.innerText = formatMoney(hipoteca) + ' MXN';
+      if (elPpr) elPpr.innerText = formatMoney(ppr) + ' MXN';
+      if (elCol) elCol.innerText = formatMoney(colegiaturas) + ' MXN';
+
+      const elDev = document.getElementById('sat-devolucion-estimada');
+      const elTot = document.getElementById('sat-total-deducciones');
+      const elTasa = document.getElementById('sat-tasa-marginal');
+
+      if (elDev) elDev.innerText = formatMoney(res.devolucionEstimada) + ' MXN';
+      if (elTot) elTot.innerText = formatMoney(res.totalDeducciones) + ' MXN';
+      if (elTasa) elTasa.innerText = res.tasaStr;
+
+      const elTopePct = document.getElementById('sat-tope-pct');
+      const elBar = document.getElementById('sat-tope-bar');
+      const elDesc = document.getElementById('sat-tope-desc');
+
+      if (elTopePct) elTopePct.innerText = `${res.pctUsoGeneral}%`;
+      if (elBar) elBar.style.width = `${res.pctUsoGeneral}%`;
+
+      if (elDesc) {
+        if (res.gastosGenerales < res.topeGeneral) {
+          if (elBar) elBar.className = "h-full bg-gradient-to-r from-cyan-500 to-emerald-400 rounded-full transition-all duration-300";
+          elDesc.innerHTML = `Aún te quedan <strong id="sat-margen-disponible" class="text-cyan-300">${formatMoney(res.margenGeneral)} MXN</strong> de margen en deducciones generales (médicos e hipoteca) antes del 31 de diciembre. Las colegiaturas no consumen este tope.`;
+        } else {
+          if (elBar) elBar.className = "h-full bg-gradient-to-r from-amber-500 to-rose-500 rounded-full transition-all duration-300";
+          elDesc.innerHTML = `<span class="text-rose-400 font-bold">⚠️ Has alcanzado el tope fiscal general (${formatMoney(res.topeGeneral)}).</span> Los gastos médicos o hipotecarios adicionales no reducirán más ISR este año. Colegiaturas y PPR se calculan con su propio límite.`;
+        }
+      }
+    }
+
+    [inputSatIngreso, inputSatMedicos, inputSatHipoteca, inputSatPpr, inputSatColegiaturas].forEach(el => {
+      if (el) el.addEventListener('input', updateDeducciones);
+    });
+    if (selectSatNivel) selectSatNivel.addEventListener('change', updateDeducciones);
+
+    // ═════════════════════════════════════════════════════════════════
+    // INICIALIZACIÓN INMEDIATA DE TODOS LOS CÁLCULOS
+    // ═════════════════════════════════════════════════════════════════
+    updateRendimientos();
+    updateInfonavit();
+    updateSofipo();
+    updateAfore();
+    updateDeducciones();
+  </script>
+  <div id="copy-toast" role="status" aria-live="polite" class="fixed left-1/2 -translate-x-1/2 bottom-20 sm:bottom-6 z-50 bg-emerald-400 text-slate-950 text-sm font-extrabold px-4 py-2 rounded-xl shadow-lg opacity-0 pointer-events-none transition-opacity"></div>
+
+  <!-- Barra inferior móvil -->
+  <nav aria-label="Accesos rápidos" class="sm:hidden fixed bottom-0 inset-x-0 z-40 bg-[#ffffff]/95 backdrop-blur border-t border-white/10 grid grid-cols-3 text-[11px] font-bold text-slate-300" style="padding-bottom:env(safe-area-inset-bottom)">
+    <button type="button" data-go="links" class="py-2.5 flex flex-col items-center gap-0.5"><span class="text-lg" aria-hidden="true">🎁</span>Cuentas</button>
+    <button type="button" data-go="rendimientos" class="py-2.5 flex flex-col items-center gap-0.5"><span class="text-lg" aria-hidden="true">🧮</span>Calcular</button>
+    <button type="button" data-go="excel" class="py-2.5 flex flex-col items-center gap-0.5"><span class="text-lg" aria-hidden="true">📥</span>Plantilla</button>
+  </nav>
+
+  <script>
+    (function(){
+      var toast=document.getElementById('copy-toast'), t;
+      function show(msg){ toast.textContent=msg; toast.style.opacity='1'; clearTimeout(t); t=setTimeout(function(){toast.style.opacity='0';},1800); }
+      document.addEventListener('click',function(e){
+        var b=e.target.closest('[data-copy]');
+        if(b){ var c=b.getAttribute('data-copy');
+          var done=function(){ show('✓ Código '+c+' copiado'); };
+          if(navigator.clipboard&&window.isSecureContext){ navigator.clipboard.writeText(c).then(done,function(){ show('Código: '+c); }); }
+          else { var ta=document.createElement('textarea'); ta.value=c; document.body.appendChild(ta); ta.select(); var ok=false; try{ok=document.execCommand('copy');}catch(_){} if(ok){done();}else{show('Código: '+c);} ta.remove(); }
+          return; }
+        var g=e.target.closest('[data-go]');
+        if(g&&typeof switchTab==='function'){ switchTab(g.getAttribute('data-go')); document.getElementById('main-nav').scrollIntoView({behavior:'smooth'}); }
+      });
+    })();
+  </script>
+</body>
+</html>
