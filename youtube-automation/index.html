@@ -157,7 +157,7 @@ body::before{content:"";position:absolute;left:0;right:0;top:-260px;height:700px
 header>div:first-child>div:first-child{background:rgba(255,255,255,.88);border-radius:24px;padding:22px 16px;backdrop-filter:blur(8px);box-shadow:0 30px 60px -30px rgba(50,50,93,.35)}
 h1{font-weight:800 !important;letter-spacing:-.035em !important}
 h2,h3{font-weight:700 !important;letter-spacing:-.015em !important}
-.text-gradient{background:linear-gradient(90deg,#0a5cd8,#0077a8 45%,#b35900 80%,#c42a33) !important;-webkit-background-clip:text !important;background-clip:text !important;-webkit-text-fill-color:transparent !important}
+.text-gradient{background:linear-gradient(90deg,#0a5cd8,#0a7ea8) !important;-webkit-background-clip:text !important;background-clip:text !important;-webkit-text-fill-color:transparent !important}
 .glass-panel,.glass-card,.spot,[class*="rounded-2xl"][class*="border"],[class*="rounded-3xl"][class*="border"]{
  background:#fff !important;border:1px solid #e6ebf1 !important;border-radius:14px !important;box-shadow:0 30px 60px -30px rgba(50,50,93,.25),0 18px 36px -18px rgba(0,0,0,.2) !important;backdrop-filter:none !important}
 .spot li[class][class]{background:#f6f9fc !important;box-shadow:none !important;border:1px solid #e6ebf1 !important}
@@ -239,10 +239,10 @@ aside [class~="bg-emerald-400"],aside [class~="bg-emerald-500"]{background:#00d4
           Abre cuentas con beneficio de bienvenida, calcula cuánto te pagan de verdad y ordena tu dinero con nuestra plantilla gratis.
         </p>
         <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3">
-          <a href="#main-nav" onclick="switchTab('links')" class="bg-gradient-to-r from-emerald-400 to-cyan-400 text-slate-950 font-extrabold px-6 py-3.5 rounded-2xl text-sm shadow-lg shadow-emerald-500/25 hover:scale-[1.03] active:scale-95 transition-transform text-center">🎁 Ver cuentas con beneficio</a>
-          <a href="#main-nav" onclick="switchTab('rendimientos')" class="border border-slate-700 hover:border-emerald-400/60 text-slate-100 font-semibold px-6 py-3.5 rounded-2xl text-sm transition-colors text-center">🧮 Calcular mis rendimientos</a>
+          <a href="#main-nav" onclick="switchTab('links')" class="bg-gradient-to-r from-emerald-400 to-cyan-400 text-slate-950 font-extrabold px-6 py-3.5 rounded-2xl text-sm shadow-lg shadow-emerald-500/25 hover:scale-[1.03] active:scale-95 transition-transform text-center inline-flex items-center justify-center gap-2">🎁 Ver cuentas con beneficio</a>
+          <a href="#main-nav" onclick="switchTab('rendimientos')" class="border border-slate-700 hover:border-emerald-400/60 text-slate-100 font-semibold px-6 py-3.5 rounded-2xl text-sm transition-colors text-center inline-flex items-center justify-center gap-2">🧮 Calcular mis rendimientos</a>
         </div>
-        <a href="#main-nav" onclick="switchTab('excel')" class="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-300 hover:text-emerald-200">📥 Descarga la plantilla Excel gratis <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+        <a href="#main-nav" onclick="switchTab('excel')" class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-emerald-300 hover:text-emerald-200">📥 Descarga la plantilla Excel gratis <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
       </div>
 
       <!-- Top 3: lo que más se usa para empezar -->
@@ -1318,10 +1318,10 @@ aside [class~="bg-emerald-400"],aside [class~="bg-emerald-500"]{background:#00d4
       // Botón para pausar el movimiento continuo
       var btn = document.createElement('button');
       btn.type = 'button'; btn.setAttribute('aria-pressed', 'false');
-      btn.className = 'fixed bottom-20 sm:bottom-4 right-4 z-50 text-[11px] font-semibold bg-slate-900/90 border border-slate-700 text-slate-300 hover:text-white rounded-full px-3 py-1.5 backdrop-blur';
+      btn.className = 'mt-4 text-xs font-semibold underline underline-offset-4 text-slate-500 hover:text-slate-800';
       btn.textContent = 'Pausar animaciones';
       btn.onclick = function () { var p = document.body.classList.toggle('motion-paused'); btn.setAttribute('aria-pressed', p); btn.textContent = p ? 'Reanudar animaciones' : 'Pausar animaciones'; };
-      document.body.appendChild(btn);
+      (document.querySelector('footer') || document.body).appendChild(btn);
     })();
   </script>
 
